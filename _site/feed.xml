@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>documentation-theme-jekyll</title>
+        <title>poa-wiki</title>
         <description>POA Network Wiki</description>
         <link>andogro.github.io/</link>
         <atom:link href="andogro.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 06 Sep 2018 15:33:41 -0600</pubDate>
-        <lastBuildDate>Thu, 06 Sep 2018 15:33:41 -0600</lastBuildDate>
+        <pubDate>Thu, 06 Sep 2018 15:46:12 -0600</pubDate>
+        <lastBuildDate>Thu, 06 Sep 2018 15:46:12 -0600</lastBuildDate>
         <generator>Jekyll v3.7.3</generator>
         
         <item>

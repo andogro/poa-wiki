@@ -1,4 +1,4 @@
-repository: tomjoht/documentation-theme-jekyll
+repository: andogro/poa-wiki
 
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
@@ -43,7 +43,7 @@ feedback_subject_line: Jekyll documentation theme - POA
 feedback_email: andogro@gmail.com
 # used as a contact email for the Feedback link in the top navigation bar
 
-# feedback_disable: true
+feedback_disable: true
 # if you uncomment the previous line, the Feedback link gets removed
 
 # feedback_text: "Need help?"
