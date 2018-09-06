@@ -5,8 +5,10 @@ topnav:
   items:
     - title: GitHub
       external_url: https://github.com/poanetwork
+    - title: Support Portal
+      external_url: https://poanet.zendesk.com/hc/en-us
     - title: News
-      url: /news
+      url: /news 
 
 #Topnav dropdowns
 topnav_dropdowns:
