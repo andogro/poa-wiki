@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>PoA Network Contract Audit | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="PoA Network Contract Audit">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">PoA Network Contract Audit</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/POA-Network-Contract-Audit.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <h1 id="poa-network-contract-audit">PoA Network Contract Audit</h1>
+
+<p><em>Audit &amp; Report By:</em> <strong>Authio</strong></p>
+
+<p><em>Principal Auditor:</em> <strong>Alexander Wade</strong></p>
+
+<p><em>Published:</em> <strong>December 14th, 2017</strong></p>
+
+<h2 id="contents">Contents</h2>
+<ul>
+  <li>
+    <ol>
+      <li><a href="#1-overview">Overview</a></li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#2-introduction">Introduction</a>
+        <ul>
+          <li>2.1 <a href="#21-authenticity">Authenticity</a></li>
+          <li>2.2 <a href="#22-scope">Scope</a></li>
+          <li>2.3 <a href="#23-methodology">Methodology</a></li>
+          <li>2.4 <a href="#24-terminology">Terminology</a></li>
+          <li>2.5 <a href="#25-disclaimer">Disclaimer</a></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#3-findings">Findings</a>
+        <ul>
+          <li>3.1 <a href="#31-general">General</a></li>
+          <li>3.2 <a href="#32-contract-explanation">Contract Explanation</a></li>
+          <li>3.3 <a href="#33-critical-priority">Critical Priority</a></li>
+          <li>3.4 <a href="#34-high-priority">High Priority</a></li>
+          <li>3.5 <a href="#35-medium-priority">Medium Priority</a></li>
+          <li>3.6 <a href="#36-low-priority">Low Priority</a></li>
+          <li>3.7 <a href="#37-notes-recommendations">Notes &amp; Recommendations</a></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#4-documents-resources">Documents &amp; Resources</a>
+        <ul>
+          <li>4.1 <a href="#41-line-by-line-comments">Line-By-Line Comments</a></li>
+          <li>4.2 <a href="#42-project-code">Project Code</a></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#5-conclusion">Conclusion</a></li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="1-overview">1. Overview</h2>
+
+<p>This document serves as the official audit report of a set of network validator and consensus
+contracts, created and published by PoA Network. PoA Network seeks to create the first Ethereum-
+based public network with PoA consensus, where validation of transactions is managed by trusted
+(and publicly identified) validators. Consensus is aided by a governance-based penalty system, where
+the current list of validators is managed by an on-chain smart contract managed through voting. Each
+validator must have a public notary license and be located in the United States, ensuring that their
+identities (stored on-chain) can be validated by any user of the network. Additionally, validators will be
+independent and not affiliated with each other in any way. Through these measures, the PoA network
+will secure a fair consensus.</p>
+
+<p>The PoA network itself supports on-chain governance as well as several “Proof-of-Identity” Oracles.
+PoA Network believes that this system will help close the gap between public and private networks,
+creating a model for open networks using PoA consensus.</p>
+
+<p>The project audited is the backbone for this on-chain governance system: a series of contracts that
+will be deployed to the main Ethereum network, and will contain validator identification data, as well
+as various voting mechanisms to allow a majority of validators to secure the network. The contracts
+are highly modular as well and feature many voting-run upgrade mechanisms, allowing most of the
+contracts in the project to be changed to accommodate different situations as the network grows.</p>
+
+<p>These features are incredibly powerful, allowing the network to grow with its userbase, as well as
+change to accommodate new features. The voting mechanisms act as a failsafe as well – if an issue
+is discovered, validators can vote to use new contracts to fix the issue.</p>
+
+<h2 id="2-introduction">2. Introduction</h2>
+
+<h3 id="21-authenticity">2.1 Authenticity</h3>
+
+<p>The audited contracts are in the OraclesOrg poa-network-consensus
+repository: https://github.com/oraclesorg/poa-network-consensus-contracts. The version used for
+this audit is commit <strong>31209cd154d35f2040ff2b894e8b98b801b416de</strong>. The main contract for this
+audit is located in <strong>PoaNetworkConsensus.sol</strong>. The main contract for managing validator keys is
+located in <strong>KeysManager.sol</strong>. The main contract for managing other contract addresses is
+<strong>ProxyStorage.sol</strong>.</p>
+
+<h3 id="22-scope">2.2 Scope</h3>
+
+<p>This audit covered all of the solidity files located in the contracts folder of the poa-network-
+consensus repository: https://github.com/oraclesorg/poa-network-consensus-contracts/tree/master/contracts <br />
+  This audit does not cover files located in any other folder.</p>
+
+<h3 id="23-methodology">2.3 Methodology</h3>
+
+<p>This audit focuses heavily on not only inspecting the smart contracts for vulnerabilities and potential
+for losses in funds, but also on working closely with the PoA Network team to scrutinize the contracts
+for execution of intent. The end goal of this audit is to help the team not only secure their contracts,
+but also to ensure their vision for the project is best represented by the project they put forward. As a
+result, additional concerns such as efficiency and design are included in this report as well.</p>
+
+<h3 id="24-terminology">2.4 Terminology</h3>
+
+<p>This audit categorizes vulnerabilities using the OWASP risk rating method based on impact and
+likelihood. Each vulnerability is given impact and vulnerability scores, which are used to give a more
+accurate estimation of a vulnerability’s overall severity. An additional factor in severity is the relative</p>
+
+<p>ease with which a vulnerability is fixed: an issue which requires extreme refactoring will be weighted
+higher than one with the same severity which is a quick fix.</p>
+
+<h3 id="25-disclaimer">2.5 Disclaimer</h3>
+
+<p>This document reflects the understanding of security flaws and vulnerabilities as they are known to
+the Authio team, and as they relate to the reviewed project. This document makes no statements on
+the viability of the project, or the safety of its contracts. This audit is not intended to represent
+investment advice and should not be taken as such.</p>
+
+<h2 id="3-findings">3. Findings</h2>
+
+<h3 id="31-general">3.1 General</h3>
+
+<p>The PoA Network team has undertaken a difficult project with their unique on-chain governance
+system. The resulting smart contracts were complicated and featured several cross-contract
+interactions, creating a lot of potential for issues and vulnerabilities. However, the PoA Network team
+was quick to respond to any concerns raised, and fixes for any issues found were quickly
+implemented, tested, and approved. The quality of the contracts audited is very high, featuring
+incredible amounts of modularity and portability, ensuring that new contracts added to the project will 
+have very standardized interfaces with which to interact. The codebase itself it clean, and well-
+organized, although it lacked detailed commenting throughout.</p>
+
+<h3 id="32-contract-explanation">3.2 Contract Explanation</h3>
+
+<p><strong>3.2.1 Function – Validator Management</strong></p>
+
+<p><strong>PoaNetworkConsensus.sol</strong> : This contract houses the logic for adding and removing validators in the
+network. The KeysManager contract calls functions here to add and remove validators, and the PoA
+Network system address uses this contract to finalize changes made to active validators.</p>
+
+<p><strong>3.2.2 Function – Validator Multi-Key Management</strong></p>
+
+<p><strong>KeysManager.sol</strong> : This contract allows new validators to initialize their mining, voting, and payout
+keys. It also interacts with voting contracts to add, remove, and swap out keys both in KeysManager
+and PoaNetworkConsensus.</p>
+
+<p><strong>3.2.3 Function – Validator Identity Management</strong></p>
+
+<p><strong>ValidatorMetadata.sol</strong> : This contract keeps track of the public identities of validators, storing various
+pieces of information including name, public identity, and location. It also allows validators to request
+changes to their metadata, which is done through voting in-contract.</p>
+
+<p><strong>3.2.4 Function – Contract Upgrades</strong></p>
+
+<p><strong>ProxyStorage.sol</strong> : This contract keeps a record of which contracts associated with the POA network
+are at which addresses. Validators can submit and vote on ballots in VotingToChangeProxyAddress
+to change these addresses.</p>
+
+<p><strong>3.2.5: Function – Voting</strong></p>
+
+<p><strong>BallotsStorage.sol</strong> : This contract serves as a storage containing the number of votes required to
+pass various types of ballots. It is written to be highly modular: if new types of ballots are created, the
+BallotsStorage contract can accommodate them.</p>
+
+<p><strong>VotingToChangeKeys.sol</strong> : This contract allows validators to create ballots to request key changes,
+additions, or removal.</p>
+
+<p><strong>VotingToChangeMinThreshold.sol</strong> : This contract allows validators to create ballots to change the
+number of votes required to pass key-change ballots.</p>
+
+<p><strong>VotingToChangeProxyAddress.sol</strong> : This contract allows validators to create ballots to change the
+addresses of other contracts stored in BallotsStorage.</p>
+
+<h3 id="33-critical-priority">3.3 Critical Priority</h3>
+
+<p><strong>Validator Ballot Creation Blocking</strong> : This issue allows a validator to completely block any ballot
+creation. Because the maximum number of active ballots is capped at 101, a validator can repeatedly
+create ballots until that number is reached, at which point no more ballots can be created. This issue
+becomes more serious with the fact that the validator can create ballots which are not finalizable by
+setting start and end dates far into the future. The end result is a complete block on ballot creation
+until the ballots can be finalized and removed. Because removing a validator requires a ballot to be
+passed, a validator can safeguard against their removal by making it impossible to create a ballot
+petitioning for their removal.</p>
+
+<p>Because this vulnerability completely breaks the project’s intended upgradability, and because the
+vulnerability is simple to exploit (albeit tedious), this vulnerability has high impact and likelihood. As a
+result, it has been marked as critical severity.</p>
+
+<p>The vulnerability can be avoided either by removing a cap on the number of active ballots, or by
+setting an active ballot limit per validator. The POA Network team opted to set an active ballot limit
+per validator that depended on the number of current active validators, as well as raising the
+maximum active ballot cap to 200. This vulnerability was <strong>fixed in commit ab</strong>.</p>
+
+<p><strong>Validator Overriding New Ballots</strong> : This vulnerability allows a validator to override changes made in a
+passed ballot by finalizing a ballot that was already passed and finalized. A validator can call the
+finalize function on an already-passed ballot and because of a faulty check to see if the ballot is
+already finalized, the ballot is able to make it to the finalizeBallot function, pass all checks, and enact
+the update the ballot was initially supposed to make.</p>
+
+<p>For example, if Ballot A changes contract address X to contract address Y, and Ballot B changes
+contract address Y to contract address Z, anyone can call finalize on Ballot A again, and change
+contract address Z back to Y. This can happen indefinitely, as any ballot can be re-finalized. This
+easy-to-execute issue goes around the entire premise of voting and can cause widespread unwanted
+side effects and unpredictable behavior. As a result, this issue was marked as critical severity.</p>
+
+<p>This vulnerability is fixable by correctly checking whether a ballot is already finalized before allowing
+the finalize function to be called. This issue was <strong>fixed in commit 7bce83d.</strong></p>
+
+<h3 id="34-high-priority">3.4 High Priority</h3>
+
+<h4 id="no-high-priority-issues-were-found">No high priority issues were found.</h4>
+
+<h3 id="35-medium-priority">3.5 Medium Priority</h3>
+
+<p><strong>Multiple Voting Through Circular Mining History Manipulation</strong> : A validator can change their mining
+key to another mining key by creating a ballot in VotingToChangeKeys.sol. Each time a mining key is
+swapped, the new key is mapped to the old key in KeysManager in the miningKeyHistory mapping.
+The idea behind this tracking is to avoid validators switching their mining keys to vote twice on a
+ballot. However, through a series of mining key ballots, a validator can create a circular mining history
+that cuts an old mining key out of the history, allowing them to vote twice on a ballot. The
+manipulation is as follows:</p>
+
+<ol>
+  <li>A validator with mining key A places a vote on Ballot X, then requests a mining key change. The
+mining key change is accepted, and the validator now has mining key B. Attempting to vote on Ballot
+X again, the validator is stopped because A is in B’s history, and A already voted on Ballot X:</li>
+</ol>
+
+<p><code class="highlighter-rouge">History(B): B =&gt; A =&gt; 0x</code></p>
+
+<ol>
+  <li>The same validator now requests a mining key change, to key C. The change is accepted.
+Attempting to vote on Ballot X again does not work because A is in the history of C:</li>
+</ol>
+
+<p><code class="highlighter-rouge">History(C): C =&gt; B =&gt; A =&gt; 0x</code></p>
+
+<ol>
+  <li>The validator requests a mining key change again, back to key B. The new mining key history is
+circular, and does not include A:</li>
+</ol>
+
+<p><code class="highlighter-rouge">History(B): B =&gt; C =&gt; B =&gt; C =&gt; B =&gt; ...</code></p>
+
+<p>The validator is now able to use mining key B to vote on Ballot X for the second time.</p>
+
+<p>This attack requires 3 consecutive mining key change requests to be voted on and accepted, which is
+a large number, but is definitely possible. While the impact of this attack is high, allowing a validator a
+second vote on a potentially important ballot, the likelihood that a validator will successfully change
+their key 3 times before Ballot X is finalized is low. As a result, this issue was given medium severity.</p>
+
+<p>We suggested that validators not be allowed to switch their mining keys to previously-held keys. The
+POA Network team agreed, and <strong>fixed the issue in commit 6e3fc0a.</strong></p>
+
+<p><strong>Unsafe Ballot Deactivation and Removal</strong> : This issue was due to unsafe deletion methods when
+removing a finished ballot. When a ballot was deleted, the length of the activeBallots array was
+decreased by one, and the ballot to be deleted was set to default values by calling delete on its
+current position in the activeBallots array. Decreasing the length of the array by one, however, simply
+removes the last ballot in the activeBallots array – which was never guaranteed to be the ballot
+intended to be removed. As a result, the most recently created ballot would be removed every time an
+old ballot was finalized.</p>
+
+<p>While this did not have high impact, it happened very frequently, and so was denoted medium
+severity. We recommended swapping the last ballot in the activeBallots array to the position of the
+ballot marked for removal, and then decrementing the length. The POA Network team agreed, and the
+issue was <strong>fixed in commit 60c1fcf.</strong></p>
+
+<h3 id="36-low-priority">3.6 Low Priority</h3>
+
+<p><strong>Single Validator Metadata Change Request Confirmation</strong> : This issue allows a validator to confirm a
+metadata change request for another validator regardless of the number of signatures required. The
+function to confirm a change did not check to see if the sender had already voted on the change
+request, and so validators would be able to send multiple calls to the change confirmation function to
+confirm metadata change without input from other validators.</p>
+
+<p>This issue was simply executed, but carried very little consequences, as metadata is not inherently
+needed to run the network, and the offending parties would be noticed and removed though a
+separate vote. As such, the issue was given low priority, and <strong>fixed with a simple check in commit
+8389e69.</strong></p>
+
+<p><strong>CreateMetadata Bypass</strong> : In ValidatorMetadata, the expected behavior is that a validator will set their
+metadata by calling createMetadata (which can only be done once), and by calling changeRequest to
+submit a vote to change metadata. However, changeRequest does not check to see if a validator has
+called createMetadata, and will allow for the submission of a change request regardless. If the
+change request is voted in, the validator is then able to call createMetadata at any point in time to get
+a ‘free’ metadata change without needing to pass a vote first.</p>
+
+<p>This issue has few negative consequences, none of which are necessary for the function of the POA
+network. As such, the issue was marked as low severity. The POA Network team opted not to fix this
+issue, as metadata changes have little to no impact on the security of the network, and bad actors
+can be removed through votes.</p>
+
+<h3 id="37-notes--recommendations">3.7 Notes &amp; Recommendations</h3>
+
+<p><strong>Many locations in the code should use the ‘memory’ keyword, because state is not modified:</strong></p>
+
+<p>The areas that can use ‘memory’ are denoted as such in the commented code, supplied at the bottom
+of this document.</p>
+
+<p><strong>Ensure code fails quickly:</strong> At multiple points in the code, require statements are located after several
+operations have already been performed. Placing require statements early in functions ensures that
+code will fail as quickly as possible. Exact locations are marked as such in the commented code,
+supplied at the bottom of this document.</p>
+
+<p><strong>Unnecessary time checking</strong> : In each voting contract, creating a ballot requires startTime and
+endTime to be greater than 0. However, the next check makes this superfluous, as startTime and
+endTime are both checked again block.timestamp, and each other.</p>
+
+<p><strong>Unnecessary checking of affectedKeyType</strong> : The affectedKeyType of a key add, remove, or swap
+ballot will only ever be one value. Checking for each type using multiple if statements wastes gas.
+Consider using an if-else structure instead.</p>
+
+<p><strong>Unnecessary complication: for loop</strong> : Placing a for loop in the PoaNetworkConsensus constructor
+here is unnecessary, because there will only ever be one item in the array to loop over.</p>
+
+<p><strong>Unused variable: votingKey</strong> : This modifier meant to use _votingKey, but instead retrieves a mining
+key for msg.sender. In the context of the code, the effect is the same, but could be confusing.
+Additionally, this creates a compiler warning.</p>
+
+<h2 id="4-documents--resources">4. Documents &amp; Resources</h2>
+
+<h3 id="41-line-by-line-comments">4.1 Line-By-Line Comments</h3>
+
+<p>Line-by-line commenting can be found in the EthereumAuthio github repository:</p>
+
+<p><a href="https://github.com/EthereumAuthio/Audits/tree/master/POANetwork">https://github.com/EthereumAuthio/Audits/tree/master/POANetwork</a></p>
+
+<h3 id="42-project-code">4.2 Project Code</h3>
+
+<p>The current POA Network Consensus contracts can be found in their public github repository:</p>
+
+<p><a href="https://github.com/oraclesorg/poa-network-consensus-contract">https://github.com/oraclesorg/poa-network-consensus-contract</a></p>
+
+<h2 id="5-conclusion">5. Conclusion</h2>
+
+<p>The Authio team would like to commend the POA Network team on a well-implemented idea. The
+project underwent extensive testnet testing prior to the audit, and was reviewed by two independent
+third-party auditing bodies. The Authio team recommends that for the next project, the POA Network
+team leaves enough time before deployment to place a public bug bounty. Bug bounties are by no
+means a replacement for an audit, as participants are incentivized to rush through the contracts to
+find issues, but they are an excellent final sanity check: more eyes are always better. For upcoming
+projects, it would be wise to include auditors in the consulting, ideation, and building process for
+contracts. When security becomes part of the whiteboarding process, issues can be caught before
+they become problems down the line.</p>
+
+<p>The POA Network has undertaken a difficult project with their unique idea. Their code was
+complicated and had many contracts interacting to create a lot of potential for vulnerability.
+Generally, a restructuring of the code would have prevented some of these issues from cropping up in
+the first place. However, after extensive review, and after working closely with the POA Network team,
+all issues of note have been fixed to the satisfaction of the Authio team.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

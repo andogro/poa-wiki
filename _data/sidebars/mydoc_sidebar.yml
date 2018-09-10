@@ -24,17 +24,27 @@ entries:
     folderitems:
 
     - title: Installation
-      url: /index.html
+      url: /mydoc_installation.html
       output: web, pdf
       type: homepage
 
     - title: Exchanges
-      url: /mydoc_introduction.html
+      url: /mydoc_exchanges.html
       output: web, pdf
 
-    - title: Wallets
-      url: /mydoc_supported_features.html
-      output: web, pdf
+      subfolders:
+       - title: Wallets
+         output: web
+        
+         subfolderitems:
+
+          - title: Metamask
+            url: /mydoc_metamask.html
+            output: web
+
+          - title: MyEtherWallet (MEW)
+            url: /mydoc_mew.html
+            output: web
 
     - title: FAQs
       url: /mydoc_faq.html

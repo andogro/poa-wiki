@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Audit of the Aura Consensus Protocol | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Audit of the Aura Consensus Protocol">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Audit of the Aura Consensus Protocol</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/Aura-Consensus-Protocol-Audit.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <h2 id="audit-of-the-aura-consensus-protocol">Audit of the Aura Consensus Protocol</h2>
+<h4 id="published-by-jean-philippe-aumasson-on-august-12-2017">Published by Jean-Philippe Aumasson on August 12, 2017</h4>
+
+<p>Authority Round (a.k.a. Aura) is a proof-of-authority consensus engine in the <a href="https://github.com/paritytech/parity/">Parity</a> Ethereum client,
+implemented in <a href="https://github.com/paritytech/parity/tree/master/ethcore/src/engines/authority_round">/ethcore/src/engines/authority_round</a> in files <a href="https://github.com/paritytech/parity/blob/master/ethcore/src/engines/authority_round/mod.rs">mod.rs</a> and <a href="https://github.com/paritytech/parity/blob/master/ethcore/src/engines/authority_round/finality.rs">finality.rs</a> (about 850 lines or Rust,
+including approximately 250 lines of tests).</p>
+
+<p>The goal of this audit is to assess the security strength of the Aura and its implementation, and to find any
+security shortcoming, in particular related to finality conditions. The version of the source code reviewed is
+that at the commit <code class="highlighter-rouge">b1517654e1212588238c989d00dd92128ea040fe</code>.</p>
+
+<p>The first part <em>Protocol review</em> is about the protocol logic, as understood from the documentation and as
+implemented. The second part <em>Code review</em> is about logic and software bugs in the implementation that are
+not directly related to the protocol’s logic.</p>
+
+<h2 id="protocol-review">Protocol review</h2>
+
+<h3 id="risks-of-synchronized-time">Risks of synchronized time</h3>
+
+<p>Aura critically relies on time synchronization of the validators for successful execution of the protocol. This increases two risks:</p>
+
+<ol>
+  <li>
+    <p><strong>Inconsistency</strong> of the blockchain’s state, if clocks of validators are accidentally desynchronized, for
+ example due to clock drift. In this case, different validators would compute different a different step
+ index, and therefore a different lead validator.</p>
+  </li>
+  <li>
+    <p><strong>Denial-of-service</strong> and possiblity other attacks: Many machines would get time from an NTP server
+ through ntpd, adjusting their local clock to compensate any skew. However,
+    - The NTP server(s) have then to be trusted—which also reduces the decentralization of the protocol
+    - The NTP traffic is unauthenticated by default, thus a network attacker could transmit invalid
+       time to the validators.</p>
+  </li>
+</ol>
+
+<p>The risk of inconsistency can be minimized by choosing a long enough duration, and by synchronizing with a
+trusted time server from a local network (for example getting its time from GPS).</p>
+
+<p>The risk of denial-of-service can be minimized by authenticating any NTP requests, using the pre-shared key
+authentication mode or the protocol proposed in a <a href="https://tools.ietf.org/html/draft-ietf-ntp-using-nts-for-ntp-10">recent Internet Draft</a>.</p>
+
+<p>Even when NTP is not used, an attacker may have other means of influencing the local clock skew, for
+example through <a href="http://sec.cs.ucl.ac.uk/users/smurdoch/papers/ccs06hotornot.pdf">CPU heating</a>.</p>
+
+<h3 id="resilience-to-malicious-nodes">Resilience to malicious nodes</h3>
+
+<p>Aura claims to tolerate up to 50% malicious nodes, as per its documentation. The goals of a collusion of
+malicious nodes would be to seal blocks that should not be sealed, or merely to influence the selection of a
+validator.</p>
+
+<p>Based on my understanding of the protocol, I believe these claims are correct. The bound 50% is tight, and
+any collusion of more than 50% of the validators could disrupt the sound execution of the protocol.</p>
+
+<h3 id="denial-of-service-attacks">Denial-of-service attacks</h3>
+
+<p>Even if connections between validators are encrypted and authenticated, an attacker that blocks from/to one
+or more validators can prevent the protocol from validating incoming blocks.</p>
+
+<p>Solutions to this problem are non-trivial, and seem to require a trade-off between resiliency to network
+disruptions and security against collusions of malicious nodes.</p>
+
+<h3 id="finality-conditions">Finality conditions</h3>
+
+<p>At the time of writing the <a href="https://github.com/paritytech/parity/wiki/Aura">documentation</a> defines finality condition as <code class="highlighter-rouge">|SIG_SET(C[K..])| &gt;= n/2</code>, where
+nis the number of validators, which suggests finalization as soon as 50% of validators have signed a given
+step. However a strict majority seems to be the desired condition, so this condition should instead be
+<code class="highlighter-rouge">|SIG_SET(C[K..])| &gt; n/2</code>.</p>
+
+<p>The condition implemented in <code class="highlighter-rouge">finality.rs</code> seems even stricter in <code class="highlighter-rouge">build_ancestry_subchain():</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    let would_be_finalized = (current_signed + 1) * 2 &gt; self.signers.len();
+</code></pre></div></div>
+<p>However this condition seems inconsistent with that in <code class="highlighter-rouge">push_hash()</code>, which simply requires a strict majority:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    while self.sign_count.len() * 2 &gt; self.signers.len() {
+</code></pre></div></div>
+<p>If this understanding is correct, the finality condition should be consistently implemented and specified.</p>
+
+<h3 id="finality-delay">Finality delay</h3>
+
+<p>A minimum of <code class="highlighter-rouge">n_v/2 + 1</code> validations being required, withn_vthe number of validators. At least <code class="highlighter-rouge">2(n_v/+ 1) = n_v + 2</code> message round trips are therefore necessary before a block is finalized by all validators. In the worst case, after exactly <code class="highlighter-rouge">n_v</code> validations, the delay will instead be of <code class="highlighter-rouge">2n_v + 2</code>. If multiple blocks are proposed for validation, the voting will add at least <code class="highlighter-rouge">2n_v</code> round trips.<br />
+  The average delay may be estimated empirically, based on the number of validations of a block or series
+thereof.</p>
+
+<h2 id="code-review">Code review</h2>
+
+<p>This section reports on potential security risks in the implementation of Aura. We mainly reviewed the
+<code class="highlighter-rouge">mod.rs</code> and <code class="highlighter-rouge">finality.rs</code> files, and did not comprehensively review their dependencies.</p>
+
+<h3 id="unsafe-code">Unsafe code</h3>
+
+<p>The files implementing <code class="highlighter-rouge">Aura</code>, <code class="highlighter-rouge">mod.rs</code> and <code class="highlighter-rouge">finality.rs</code>, do not unsafe code blocks such as raw pointer dereferences,
+nor recursions that would create a risk of stack overflow.</p>
+
+<p>However, there is an unsafe blocks in the <code class="highlighter-rouge">bigint::hash</code> module that is executed in the Aura code, namely
+the implementation of the PartialEq trait:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    impl PartialEq for $from {
+        fn eq(&amp;self, other: &amp;Self) -&gt; bool {
+            unsafe { memcmp(self.0.as_ptr() as *const c_void, other.0.as_ptr() as *const c_void, $size) == 0 }
+        }
+    }
+</code></pre></div></div>
+<p>This is for example executed in Aura’s <code class="highlighter-rouge">is_epoch_end()</code> function in the line</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    .map(|h| if h == chain_head.hash() {
+</code></pre></div></div>
+<p>This does not create a security, however, since the buffer size (32 bytes) is hardcoded and can’t be controlled by an attacher.</p>
+
+<h3 id="step-number-cast-from-64--to-32-bit">Step number cast from 64- to 32-bit</h3>
+
+<p>In <code class="highlighter-rouge">duration_remaining()</code> a Step’s <code class="highlighter-rouge">inner</code> attribute obtained from <code class="highlighter-rouge">self.load()</code> is cast from <code class="highlighter-rouge">usize</code> to <code class="highlighter-rouge">u32</code>, thus truncating any 64-bit value when running on a 64-bit system (where <code class="highlighter-rouge">usize</code> is 64-bit). This number is then multiplied to a <code class="highlighter-rouge">Duration</code> object to estimate the remaining time for this step:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    fn load(&amp;self) -&gt; usize { self.inner.load(AtomicOrdering::SeqCst) }
+    fn duration_remaining(&amp;self) -&gt; Duration {
+        let now = unix_now();
+        let step_end = self.duration * (self.load() as u32 + 1);
+</code></pre></div></div>
+<p>Rust does not allow a <code class="highlighter-rouge">Duration</code> to be multiplied by an <code class="highlighter-rouge">u64</code>, however. The safest fix seems therefore to check that <code class="highlighter-rouge">inner</code> is smaller than <code class="highlighter-rouge">u32::MAX</code>.</p>
+
+<h3 id="potential-integer-overflow">Potential integer overflow</h3>
+
+<p>The <code class="highlighter-rouge">AtomicUsize::fetch_add()</code> function will wrap around on overflow, which may occur on 32-bit systems
+(where <code class="highlighter-rouge">usize</code> is 32-bit) and lead to unsafe behavior of the protocol if not detected: c</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    fn increment(&amp;self) {
+        self.inner.fetch_add(1, AtomicOrdering::SeqCst);
+    }
+</code></pre></div></div>
+<p>A fix is to check that <code class="highlighter-rouge">inner</code> is smaller than <code class="highlighter-rouge">u32::MAX</code>.</p>
+
+<h3 id="potential-division-by-zero">Potential division by zero</h3>
+
+<p>If <code class="highlighter-rouge">self.duration</code> is less than a second, then a division by zero will happen in:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    if self.calibrate {
+        let new_step = unix_now().as_secs() / self.duration.as_secs();
+        self.inner.store(new_step as usize, AtomicOrdering::SeqCst);
+    }
+</code></pre></div></div>
+<p>A fix is to ensure that <code class="highlighter-rouge">self.duration</code> is greater than one second.</p>
+
+<h3 id="other-possible-improvements">Other possible improvements</h3>
+<h4 id="faster-timings">Faster timings</h4>
+
+<p>If speed of timing measurements is critical, Aura may consider using <a href="https://github.com/jedisct1/rust-coarsetime">rust-coarsetime</a>, “a partial replacement
+for the Time and Duration structures from the standard library”. The timings obtained are slightly less accurate, though.</p>
+
+<p><strong>Safer PRNG</strong></p>
+
+<p>Aura doesn’t rely on a pseudorandom generator (<code class="highlighter-rouge">random()</code> is only used for testing), yet we observed that in
+<code class="highlighter-rouge">hash.rs</code> the <code class="highlighter-rouge">randomize()</code> function will not check that an instance of <code class="highlighter-rouge">OsRng</code> was successfully created:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pub fn randomize(&amp;mut self) {
+        let mut rng = OsRng::new().unwrap();
+        *self= $from::rand(&amp;mut rng);
+    }
+</code></pre></div></div>
+<p>It would be safer to properly check the <code class="highlighter-rouge">OsRng</code> instantiation, by doing the following (as <a href="https://stackoverflow.com/questions/27362523/generating-secure-random-numbers-in-rust">copied from SO</a> )</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    let mut rng = match OsRng::new() {
+        Ok(g) =&gt; g,
+        Err(e) =&gt; panic!("Failed to obtain OS RNG: {}", e)
+    };
+</code></pre></div></div>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

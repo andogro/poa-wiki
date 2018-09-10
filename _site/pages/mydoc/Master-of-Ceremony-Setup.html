@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>not-so Easy steps to create a new network | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="not-so Easy steps to create a new network">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">not-so Easy steps to create a new network</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/Master-of-Ceremony-Setup.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <h2 id="not-so-easy-steps-to-create-a-new-network"><del>not-so</del> Easy steps to create a new network</h2>
+<p>(for the Master of Ceremony)</p>
+
+<p>Prerequisites:</p>
+<ol>
+  <li>Plenty of time</li>
+  <li>Patience</li>
+  <li>New network’s <code class="highlighter-rouge">NetworkID</code></li>
+  <li>New network’s <code class="highlighter-rouge">NetworkName</code></li>
+</ol>
+
+<h2 id="chapter-i---in-which-moc-creates-his-secret-keys-and-never-shows-them-to-others">Chapter I - in which MoC creates his secret keys and never shows them to others</h2>
+
+<p>You will need to generate ethereum address and keystore file for the <code class="highlighter-rouge">MoC</code> (Master of Ceremony).<br />
+One way is to download <code class="highlighter-rouge">etherwallet-v*.*.*.*.zip</code> archive of the latest release from myetherwallet github repo https://github.com/kvhnuke/etherwallet/releases/
+then unplug your computer from the Internet, extract zip archive and open <code class="highlighter-rouge">index.html</code> in your browser.
+Please be sure to use strong password, download keystore file <code class="highlighter-rouge">UTC--*--*</code>, your private key and keep them in a safe place.</p>
+
+<h2 id="chapter-ii---in-which-moc-forks-first-portion-of-repos-and-replaces-some-text">Chapter II - in which MoC forks first portion of repos and replaces some text</h2>
+
+<p>There are quite a few repositories that are used to run the network. You will need to fork them and later update parameters.
+Please be consistent with naming of branches and use <code class="highlighter-rouge">NetworkName</code>.</p>
+
+<h3 id="poa-network-consensus-contract">POA Network Consensus contract</h3>
+<p>https://github.com/poanetwork/poa-network-consensus-contracts</p>
+<ol>
+  <li>Clone it to your local machine <code class="highlighter-rouge">git clone https://github.com/poanetwork/poa-network-consensus-contracts -b master</code></li>
+  <li>Install <code class="highlighter-rouge">solc</code>: <strong>make sure to use binary package for solc, not the one from npm</strong> http://solidity.readthedocs.io/en/develop/installing-solidity.html#binary-packages</li>
+  <li>Run <code class="highlighter-rouge">npm install</code></li>
+  <li>Go to <code class="highlighter-rouge">scripts</code> directory and run <code class="highlighter-rouge">poa-bytecode.js</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i
+<span class="nv">MASTER_OF_CEREMONY</span><span class="o">=</span>0x0039F22efB07A647557C7C5d17854CFD6D489eF3 node poa-bytecode.js
+</code></pre></div>    </div>
+    <p>where MASTER_OF_CEREMONY is the public address of Master of Ceremony from the previous step.
+It will show the bytecode of <code class="highlighter-rouge">PoaNetworkConsensus</code> contract. Copy the bytecode and paste it into <code class="highlighter-rouge">spec.json</code> in the next step.</p>
+  </li>
+</ol>
+
+<h3 id="chainjson">Chain.json</h3>
+<p>https://github.com/poanetwork/poa-chain-spec</p>
+<ol>
+  <li>
+    <p>Create a separate branch named <code class="highlighter-rouge">NetworkName</code> based on <code class="highlighter-rouge">Sokol</code></p>
+  </li>
+  <li>
+    <p>Change “name” to <code class="highlighter-rouge">NetworkName</code>.</p>
+  </li>
+  <li>
+    <p>In “params” block, change networkID to your <code class="highlighter-rouge">NetworkID</code> in hex.</p>
+  </li>
+</ol>
+
+<p><strong>NOTE</strong>: When creating Core and Sokol, there are additional steps:<br />
+3.a. in “params” block change <code class="highlighter-rouge">stepDuration</code> to <code class="highlighter-rouge">5</code> (number)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"stepDuration": 5,
+</code></pre></div></div>
+<p>3.b. in “params” block add the following lines to switch uncles off:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    "maximumUncleCountTransition": 0,
+    "maximumUncleCount": 0
+</code></pre></div></div>
+<p>3.c make sure all unnecessary contracts are removed from “accounts” block, only the one in “safeContract” should be left.</p>
+
+<ol>
+  <li>
+    <p>Scroll down to “accounts” block and replace constructor for “0xf472e0e43570b9afaab67089615080cf7c20018d” with bytecode you obtained from POA Network Consensus contract “0x606060…”</p>
+  </li>
+  <li>
+    <p>Replace address of account with a huge amount of money with your MoC address</p>
+  </li>
+  <li>Inside <code class="highlighter-rouge">engine.authorityRound.params.validators.multi</code> remove values other than <code class="highlighter-rouge">0</code>. So, the final result should look like this (change <code class="highlighter-rouge">&lt;POA_NETWORK_CONSENSUS_CONTRACT_ADDRESS&gt;</code> to the actual POANetworkConsensus contract address)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"validators": {
+       "multi": {
+         "0": {
+           "safeContract": "&lt;POA_NETWORK_CONSENSUS_CONTRACT_ADDRESS&gt;"
+         }
+       }
+</code></pre></div>    </div>
+  </li>
+  <li>Open <code class="highlighter-rouge">bootnodes.txt</code> and remove all lines from this file</li>
+</ol>
+
+<h3 id="ansible-playbook">Ansible playbook</h3>
+<p>https://github.com/poanetwork/deployment-playbooks</p>
+<ol>
+  <li>Create a separate branch named <code class="highlighter-rouge">NetworkName</code> from <code class="highlighter-rouge">sokol</code> or <code class="highlighter-rouge">core</code> branch</li>
+  <li>Open <code class="highlighter-rouge">group_vars/all.network</code> and replace the following variables with corresponding branch names (should be <code class="highlighter-rouge">NetworkName</code> mostly)
+    <ul>
+      <li><code class="highlighter-rouge">SCRIPTS_MOC_BRANCH</code></li>
+      <li><code class="highlighter-rouge">SCRIPTS_VALIDATOR_BRANCH</code></li>
+      <li><code class="highlighter-rouge">GENESIS_BRANCH</code></li>
+      <li><code class="highlighter-rouge">GENESIS_NETWORK_NAME</code> - <strong>make sure it matches <code class="highlighter-rouge">name</code> in <code class="highlighter-rouge">spec.json</code></strong></li>
+    </ul>
+  </li>
+  <li>Replace <code class="highlighter-rouge">MOC_ADDRESS</code> with your MoC address</li>
+  <li>If you forked repos to your own github account, also replace the <code class="highlighter-rouge">MAIN_REPO_FETCH</code> value with your account name.</li>
+  <li>You may also want to replace
+    <ul>
+      <li><code class="highlighter-rouge">NODE_SOURCE_DEB</code> - node.js version</li>
+      <li><code class="highlighter-rouge">PARITY_BIN_LOC</code> - url to parity binary</li>
+      <li>change <code class="highlighter-rouge">region</code></li>
+      <li>change <code class="highlighter-rouge">image</code> (see https://cloud-images.ubuntu.com/locator/ec2/)</li>
+      <li>select a better <code class="highlighter-rouge">*_instance_type</code> (t2.large?) (see https://aws.amazon.com/ec2/pricing/on-demand/)</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="chapter-iii---in-which-moc-takes-a-deep-breath-and-creates-first-nodes-of-the-network">Chapter III - in which MoC takes a deep breath and creates first nodes of the network</h2>
+<h3 id="configuring-aws">Configuring AWS</h3>
+<ol>
+  <li>
+    <p>register (if you haven’t already) and login to the AWS management console https://aws.amazon.com/console/</p>
+  </li>
+  <li>
+    <p>to create credentials for cli, open IAM home https://console.aws.amazon.com/iam/home then click “Add user” pick a username, and check “Programmatic access” for “Access type”. Click “Next”</p>
+  </li>
+  <li>
+    <p>you can choose any of the available options, but “Attach existing policies directly” is the simplest one. In the list of policy types check “AmazonEC2FullAccess”. Review your account and click “Create user” to proceed.</p>
+  </li>
+  <li>
+    <p>it is very important that you copy “Access Key ID” and “Secret Access Key” without leaving this page, because there is no other way to retrieve “Secret Access Key” later and you will have to start again and create another user.</p>
+  </li>
+  <li>
+    <p>when you’ve copied and saved your AWS secret keys, next step is to upload your SSH public key. In the top left corner of the page select “Services &gt; EC2”. On the left sidebar select “Network &amp; Security” &gt; “Key Pairs”. Click “Import Key Pair”. Browse your filesystem for the public key. You can give a name to this keypair, otherwise, base name of the file will be used (by default <code class="highlighter-rouge">id_rsa</code>).</p>
+  </li>
+  <li>configure aws cli:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws configure
+</code></pre></div>    </div>
+    <p>provide your credentials, choose region for your account (e.g. <code class="highlighter-rouge">us-east-2</code>) and output format (<code class="highlighter-rouge">json</code> is recommended).</p>
+  </li>
+  <li>check that keypair was correctly imported:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws ec2 describe-key-pairs
+</code></pre></div>    </div>
+    <p>you should see your keypair name in the list.</p>
+  </li>
+  <li>to list available subnets:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws ec2 describe-subnets
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="run-ansible-playbooks">Run ansible playbooks</h3>
+<ol>
+  <li>Install ansible, <code class="highlighter-rouge">boto</code> and <code class="highlighter-rouge">boto3</code> packages
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install boto
+pip install boto3
+</code></pre></div>    </div>
+  </li>
+  <li>Clone https://github.com/poanetwork/deployment-playbooks and <code class="highlighter-rouge">git checkout</code> to the correct branch.</li>
+  <li>Prepare files with your ssh public keys, e.g.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat ~/.ssh/id_rsa.pub &gt; files/admins.pub
+cp files/admins.pub files/ssh_netstat.pub
+cp files/admins.pub files/ssh_bootnode.pub
+cp files/admins.pub files/ssh_explorer.pub
+cp files/admins.pub files/ssh_moc.pub
+cp files/admins.pub files/ssh_validator.pub
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="start-with-netstat-server">Start with netstat server</h3>
+<ol>
+  <li>Create a file with a full config for this node type:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat group_vars/all.network group_vars/netstat.example &gt; group_vars/all
+</code></pre></div>    </div>
+  </li>
+  <li>Open this file and fill missing values at the end</li>
+  <li>Create an instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook netstat.yml
+</code></pre></div>    </div>
+    <p>Wait till the command completes, extract from logs and write down IP address and AWS InstanceID of the new node.</p>
+  </li>
+  <li>Create file <code class="highlighter-rouge">hosts</code> with the following content (assuming new node’s IP is 192.0.2.1)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[netstat]
+192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>Configure the instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i hosts site.yml -l 192.0.2.1
+</code></pre></div>    </div>
+    <p>If this command fails because host is unreachable over ssh, wait a minute and start again, it takes some time to reboot.</p>
+  </li>
+  <li>Login as root and edit site config for nginx - uncomment the following lines in <code class="highlighter-rouge">/etc/nginx/conf.d/default.conf</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> add_header Access-Control-Allow-Origin "*";
+ add_header Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept";
+</code></pre></div>    </div>
+  </li>
+  <li>If you plan on using Cloudflare and/or SSL Certificates for netstat, it’s time to configure them. Then
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@192.0.2.1
+</code></pre></div>    </div>
+    <p>stop nginx</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service nginx stop
+</code></pre></div>    </div>
+    <p>backup current certificates:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -R /etc/nginx/ssl /etc/nginx/ssl.orig
+</code></pre></div>    </div>
+    <p>then replace the content of <code class="highlighter-rouge">/etc/nginx/ssl/server.crt</code> and <code class="highlighter-rouge">/etc/nginx/ssl/server.key</code> with your certificate and private key. Then start nginx again</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service nginx start
+</code></pre></div>    </div>
+    <p>and check if it’s running</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | grep nginx
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="spawn-bootnodes">Spawn bootnodes</h3>
+<ol>
+  <li>Create a file with a full config for this node:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat group_vars/all.network group_vars/bootnode.example &gt; group_vars/all
+</code></pre></div>    </div>
+  </li>
+  <li>Fill missing values in the end of the file. Use <code class="highlighter-rouge">https://netstat.example.com</code> for <code class="highlighter-rouge">NETSTAT_SERVER</code> if you installed valid SSL certificates, or <code class="highlighter-rouge">http://192.0.2.1:3000</code> if you haven’t.</li>
+</ol>
+
+<p><strong>Don’t forget to update NODE_FULL_NAME and NODE_ADMIN_EMAIL</strong></p>
+
+<ol>
+  <li>Create an instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook bootnode.yml
+</code></pre></div>    </div>
+    <p>Wait till the command completes, extract from logs and write down IP address and AWS InstanceID of the new node.</p>
+  </li>
+  <li>Create/add to file <code class="highlighter-rouge">hosts</code> the following content (assuming new node’s IP is 192.0.2.1)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[bootnode]
+192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>Configure the instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i hosts site.yml -l 192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>When creating first few bootnodes, you need to update <code class="highlighter-rouge">bootnodes.txt</code> file in your branch of chain-spec repository, as it will contain enodes of “public” bootnodes. To get enode, ssh to the node and grep logs:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep enode /home/bootnode/logs/parity.log
+</code></pre></div>    </div>
+    <p>then open bootnodes.txt in chain-spec repository and insert enode on a new line at the end of file. If enode is not found, restart parity</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart poa-parity
+</code></pre></div>    </div>
+    <p>and try again.</p>
+  </li>
+  <li>When you’re done creating as many public bootnodes as necessary, it is recommended to login as root to each one of them, update local version of <code class="highlighter-rouge">/home/bootnode/bootnodes.txt</code> and restart parity with
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart poa-parity
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>You may also create a number of “decoy” bootnodes, that will serve to connect nodes of the network, but will not be listed in the public file.</p>
+  </li>
+  <li>If you need to do this, select a number of bootnodes and configure Cloudflare balancer on them.</li>
+</ol>
+
+<p><strong>NOTE</strong>: if you notice that nodes quickly appear and disappear in netstat’s dashboard, do the following:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@netstat.ip
+systemctl restart poa-dashboard
+</code></pre></div></div>
+<p>This should fix the problem from now on.</p>
+
+<h3 id="create-a-node-for-explorer">Create a node for Explorer</h3>
+<ol>
+  <li>Create a file with a full config for this node:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat group_vars/all.network group_vars/explorer.example &gt; group_vars/all
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Fill missing values in the end of the file.</p>
+  </li>
+  <li>Create an instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook explorer.yml
+</code></pre></div>    </div>
+    <p>Wait till the command completes, extract from logs and write down IP address and AWS InstanceID of the new node.</p>
+  </li>
+  <li>Create/replace file <code class="highlighter-rouge">hosts</code> with the following content (assuming new node’s IP is 192.0.2.1)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[explorer]
+192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>Configure the instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i hosts site.yml -l 192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>Login as root and edit site config for nginx - uncomment the following lines in <code class="highlighter-rouge">/etc/nginx/conf.d/default.conf</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> add_header Access-Control-Allow-Origin "*";
+ add_header Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept";
+</code></pre></div>    </div>
+  </li>
+  <li>If you plan on using Cloudflare/SSL Certificates for the explorer, this is the time to do it. Follow the procedure analogous to netstat server.</li>
+</ol>
+
+<h3 id="create-mocs-instance-finish-the-deployment-of-consensus-contracts-and-generate-initial-keys">Create MoC’s instance, finish the deployment of consensus contracts and generate initial keys</h3>
+<ol>
+  <li>Create a file with a full config for this node:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat group_vars/all.network group_vars/moc.example &gt; group_vars/all
+</code></pre></div>    </div>
+  </li>
+  <li>Fill missing values in the end of the file. When setting <code class="highlighter-rouge">MOC_KEYFILE</code>, paste the entire json content of the keystore file and make sure it’s enclosed in single quotes:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MOC_KEYFILE: '{"address": ... }'
+</code></pre></div>    </div>
+    <p>Use <code class="highlighter-rouge">https://netstat.example.com</code> for <code class="highlighter-rouge">NETSTAT_SERVER</code> if you installed valid SSL certificates, or <code class="highlighter-rouge">http://192.0.2.1:3000</code> if you haven’t.</p>
+  </li>
+  <li>If you want to close external access to your node, set:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allow_moc_ssh: false
+allow_moc_p2p: false
+</code></pre></div>    </div>
+    <p>If this is the first time you create moc’s node, don’t set <code class="highlighter-rouge">allow_moc_ssh</code> to <code class="highlighter-rouge">false</code>, because you will need to connect to it later.</p>
+  </li>
+</ol>
+
+<p><strong>Don’t forget to update NODE_FULL_NAME and NODE_ADMIN_EMAIL</strong></p>
+
+<ol>
+  <li>Create an instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook moc.yml
+</code></pre></div>    </div>
+    <p>Wait till the command completes, extract from logs and write down IP address and AWS InstanceID of the new node.</p>
+  </li>
+  <li>Create/replace file <code class="highlighter-rouge">hosts</code> with the following content (assuming new node’s IP is 192.0.2.1)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[moc]
+192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>Configure the instance
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i hosts site.yml -l 192.0.2.1
+</code></pre></div>    </div>
+  </li>
+  <li>After node was created, connect to it via <code class="highlighter-rouge">ssh root@...</code> first, edit <code class="highlighter-rouge">node.toml</code> and uncomment <code class="highlighter-rouge">unlock=...</code> line
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /home/moc/node.toml
+systemctl restart poa-parity
+</code></pre></div>    </div>
+  </li>
+  <li>Then relogin as unpriviledged  user <code class="highlighter-rouge">moc</code> and clone (via https) POA Network Consensus contract repository
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su moc
+git clone https://github.com/poanetwork/poa-network-consensus-contracts.git
+cd poa-network-consensus-contracts
+git checkout master
+npm install
+</code></pre></div>    </div>
+    <p>and run the following command to deploy other contracts from the consensus (change <code class="highlighter-rouge">POA_NETWORK_CONSENSUS_ADDRESS</code> accordingly if you changed <code class="highlighter-rouge">safeContract</code> in spec.json):</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SAVE_TO_FILE=true POA_NETWORK_CONSENSUS_ADDRESS=&lt;POA_NETWORK_CONSENSUS_CONTRACT_ADDRESS&gt; MASTER_OF_CEREMONY=&lt;MOC_ADDRESS&gt; ./node_modules/.bin/truffle migrate --reset --network sokol
+</code></pre></div>    </div>
+    <p>copy and save the output as it contains addresses to which other contracts were deployed.
+Also, <code class="highlighter-rouge">contracts.json</code> will be generated. Copy it and paste to the forked <code class="highlighter-rouge">chain-spec</code> repository.</p>
+  </li>
+  <li>To distribute initial tokens, go to (you are under <code class="highlighter-rouge">moc</code> user, not <code class="highlighter-rouge">root</code>!)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/poa-scripts-moc/distributeTokens
+</code></pre></div>    </div>
+    <p>Upload csv file with <code class="highlighter-rouge">wallet,tokens</code> list, then edit <code class="highlighter-rouge">.env</code> file: replace <code class="highlighter-rouge">FAT_BALANCE</code> with your MoC address and <code class="highlighter-rouge">FILENAME_CSV_INVESTORS</code> with the csv file name. Run</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node distribute.js
+</code></pre></div>    </div>
+    <p>to distribute tokens.</p>
+  </li>
+  <li><strong>To generate initial keys</strong> go to
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/poa-scripts-moc
+</code></pre></div>    </div>
+    <p>open <code class="highlighter-rouge">config.json</code> and under “contracts.KeysManager” block replace “addr” with KeysManager contract’s address that you obtained while deploying other contracts from the consensus. Don’t change ABI unless you’ve updated contract’s code. Then do</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd generateInitialKey
+npm start
+</code></pre></div>    </div>
+    <p>Script will output initial key’s address, password and location of keystore file.</p>
+  </li>
+</ol>
+
+<p>Repeat this step as many times as necessary.</p>
+
+<ol>
+  <li>Relogin back as <code class="highlighter-rouge">root</code>, edit <code class="highlighter-rouge">node.toml</code> to comment out the <code class="highlighter-rouge">unlock=["0x...]</code> line, then restart parity:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+nano node.toml
+systemctl restart poa-parity
+</code></pre></div>    </div>
+  </li>
+  <li>You may also have to restart <code class="highlighter-rouge">pm2</code> if it disconnects while parity restarts:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su moc
+pm2 restart all
+pm2 list
+</code></pre></div>    </div>
+  </li>
+  <li>(optional) To close external access to MoC’s node: edit <code class="highlighter-rouge">group_vars/all</code> and set
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allow_moc_ssh: false
+allow_moc_p2p: false
+</code></pre></div>    </div>
+    <p>then rerun</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i hosts site.yml
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="chapter-iv---in-which-moc-prepares-other-repositories">Chapter IV - in which MoC prepares other repositories</h2>
+
+<h3 id="dapp---keys-generation">DApp - Keys generation</h3>
+<p>https://github.com/poanetwork/poa-dapps-keys-generation/tree/core</p>
+
+<ol>
+  <li>
+    <p>in <code class="highlighter-rouge">src/getWeb3.js</code> change number to <code class="highlighter-rouge">NetworkID</code>
+ <code class="highlighter-rouge">switch (netId) {</code></p>
+  </li>
+  <li>
+    <p>in <code class="highlighter-rouge">src/keysManager.js</code> change <code class="highlighter-rouge">KEYS_MANAGER_ADDRESS</code> to the one you obtained when deploying other contracts of consensus</p>
+  </li>
+</ol>
+
+<h3 id="dapp---validators">DApp - Validators</h3>
+<p>https://github.com/poanetwork/poa-dapps-validators/tree/core</p>
+
+<ol>
+  <li>
+    <p>in <code class="highlighter-rouge">src/getWeb3.js</code> change number to <code class="highlighter-rouge">NetworkID</code>
+ <code class="highlighter-rouge">switch (netId) {</code></p>
+  </li>
+  <li>
+    <p>in <code class="highlighter-rouge">src/contracts/addresses.js</code> uncomment <code class="highlighter-rouge">const local = {</code> constant and change addresses of corresponding contracts to those, you obtained when deploying other contracts of consensus</p>
+  </li>
+  <li>
+    <p>change line <code class="highlighter-rouge">resolve({addresses: json, web3Config});</code> to <code class="highlighter-rouge">resolve({addresses: local, web3Config});</code></p>
+  </li>
+</ol>
+
+<h3 id="dapp---voting">DApp - Voting</h3>
+<p>https://github.com/poanetwork/poa-dapps-voting/tree/core</p>
+
+<ol>
+  <li>
+    <p>in <code class="highlighter-rouge">src/getWeb3.js</code> change number to <code class="highlighter-rouge">NetworkID</code>
+ <code class="highlighter-rouge">switch (netId) {</code></p>
+  </li>
+  <li>
+    <p>in <code class="highlighter-rouge">src/contracts/addresses.js</code> uncomment <code class="highlighter-rouge">const local = {</code> constant and change addresses of corresponding contracts to those, you obtained when deploying other contracts of consensus</p>
+  </li>
+  <li>
+    <p>in <code class="highlighter-rouge">switch (netId) {</code> add your networkID with returning <code class="highlighter-rouge">local</code> constant:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>case 'your_network_ID':
+         return local
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="repository-with-scripts-for-moc-node">Repository with scripts for <code class="highlighter-rouge">moc</code> node</h3>
+<p>https://github.com/poanetwork/poa-scripts-moc/tree/master
+(same steps as you did manually on moc’s node):</p>
+<ol>
+  <li>Create a branch named <code class="highlighter-rouge">NetworkName</code> from master branch.</li>
+  <li>Update <code class="highlighter-rouge">contracts.KeysManager.addr</code> in <code class="highlighter-rouge">config.json</code> to the one you obtained when deploying other contracts of consensus</li>
+  <li>Update <code class="highlighter-rouge">FAT_BALANCE</code> in <code class="highlighter-rouge">./distributeTokens/.env</code> to MoC’s address.</li>
+</ol>
+
+<h3 id="repository-with-scripts-for-validator-node">Repository with scripts for <code class="highlighter-rouge">validator</code> node</h3>
+<p>https://github.com/poanetwork/poa-scripts-validator/tree/master</p>
+<ol>
+  <li>Create a branch named <code class="highlighter-rouge">NetworkName</code> from mainnet branch.</li>
+  <li>Update <code class="highlighter-rouge">contracts.KeysManager.addr</code> in <code class="highlighter-rouge">config.json</code> to the one you obtained when deploying other contracts of consensus (same thing as you did manually on moc’s node).</li>
+</ol>
+
+<h2 id="chapter-vi---in-which-moc-changes-links-in-validators-readme">Chapter VI - in which MoC changes links in Validator’s README</h2>
+<ol>
+  <li>Supply the validator’s README with the correct Keys Exchange DApp url:
+    <ul>
+      <li>https://github.com/poanetwork/wiki/wiki/Validator-Node-on-AWS#exchange-your-initial-keys-for-mining-payout-and-voting-keys 
+or</li>
+      <li>https://github.com/poanetwork/wiki/wiki/Validator-Node-Non-AWS#exchange-your-initial-keys-for-mining-payout-and-voting-keys 
+depending on your VM.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="chapter-vii---in-which-moc-gives-initial-keys-to-first-validators-and-hopes-for-the-best">Chapter VII - in which MoC gives initial keys to first validators and hopes for the best</h2>
+<p>For each validator, you will need to provide:</p>
+<ul>
+  <li>initial key’s address</li>
+  <li>initial key’s keystore file</li>
+  <li>initial key’s password</li>
+  <li>netstats server url</li>
+  <li>netstats password</li>
+  <li>link to the correct validator’s README</li>
+  <li>link to the KeysGenerator DApp</li>
+</ul>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

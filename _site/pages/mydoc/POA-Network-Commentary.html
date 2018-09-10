@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Aura Consensus Protocol Audit Findings Commentary | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Aura Consensus Protocol Audit Findings Commentary">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">Aura Consensus Protocol Audit Findings Commentary</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/POA-Network-Commentary.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <h1 id="aura-consensus-protocol-audit-findings-commentary">Aura Consensus Protocol Audit Findings Commentary</h1>
+
+<p>This document is prepared in response to the draft audit report provided
+by Jean-Philippe Aumasson (08/12/17), SHA256 hash of <a href="aura-audit-report.md">aura-audit-report.md</a>
+is 8040fe95d91b2d77f1f0df2af5ba23c85ee487b18dde650dd46cfc82686d0b3d</p>
+
+<h2 id="protocol-review">Protocol review</h2>
+
+<h3 id="risks-of-synchronized-time">Risks of synchronized time</h3>
+
+<p>The report indicates certain risks of [un]synchronized time and related attacks.
+We believe these concerns are valid and are mostly the consequences of the
+basics of the protocol (it is based on physical time)</p>
+
+<h3 id="resilience-to-malicious-nodes">Resilience to malicious nodes</h3>
+
+<p>No commentary.</p>
+
+<h3 id="denial-of-service-attacks">Denial-of-service attacks</h3>
+
+<p>No commentary.</p>
+
+<h3 id="finality-conditions">Finality conditions</h3>
+
+<p>We’ve identified the same case to cause confusion as well (specification
+stating <code class="highlighter-rouge">&gt;= 1/2</code> of the validators, while code requires <code class="highlighter-rouge">&gt; 1/2</code>).</p>
+
+<p>With regards to <code class="highlighter-rouge">would_be_finalized</code> calculation, we currently believe
+that this code is correct and is expressing the same <code class="highlighter-rouge">&gt; 1/2</code> requirement,
+but is “forecasting” finalization for the next signer.</p>
+
+<p>Recommended course of action:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>P1</strong> Consult with Parity maintainers with regards to the original intent
+    and actual implementation. Which constraint (“greater” or “stricly greater”)
+    should in fact be specified and implemented</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>P2</strong> Further analyze the correctness of <code class="highlighter-rouge">would_be_finalized</code> definition</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>P2.1</strong> Provide meaningful in-code commentary on how <code class="highlighter-rouge">build_ancestry_subchain</code>
+             operates</li>
+</ul>
+
+<h3 id="finality-delay">Finality delay</h3>
+
+<p>No commentary at this moment, but we are further researching this concern.</p>
+
+<h2 id="code-review">Code review</h2>
+
+<h3 id="unsafe-code">Unsafe code</h3>
+
+<p>The report mentions use of unsafe code in <code class="highlighter-rouge">bigint::hash</code> where it is used
+to efficiently compare two byte arrays. As mentioned, this doesn’t seem
+to be a security risk. However, it is still an instance of unsafe code
+which would always raise at least some concern.</p>
+
+<p>At the core of this issue there’s a question of potential performance gains.
+In order to address it to best of our ability, we’ve conducted a few comparative
+benchmarks. Firstly, we ran simple benchmarks (slice equality vs memcp) both on
+rust stable (rustc 1.22.1 (05e2e1c41 2017-11-22)) and rust nighty (rustc 1.22.1 (05e2e1c41 2017-11-22))
+and did not see any gains (the results were very similar in both cases):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test cmp      ... bench:           4 ns/iter (+/- 1)
+test cmp_loop ... bench:       4,251 ns/iter (+/- 215)
+test eq       ... bench:           4 ns/iter (+/- 1)
+test eq_loop  ... bench:       4,269 ns/iter (+/- 622)
+</code></pre></div></div>
+
+<p>The source code for this benchmark is available at <a href="byte-cmp">byte-cmp</a></p>
+
+<p>To continue this effort, we further sampled some libraries available
+on <a href="https://crates.io">crates.io</a>.</p>
+
+<p><a href="https://github.com/saschagrunert/fastcmp">fastcmp</a> was seemingly able
+to show different results:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test fast_compare_equal    ... bench:          10 ns/iter (+/- 0) = 25600 MB/s
+test fast_compare_unequal  ... bench:          10 ns/iter (+/- 0) = 25600 MB/s
+test slice_compare_equal   ... bench:          21 ns/iter (+/- 1) = 12190 MB/s
+test slice_compare_unequal ... bench:          21 ns/iter (+/- 0) = 12190 MB/s
+</code></pre></div></div>
+
+<p>At the core of its implementation method also lies <code class="highlighter-rouge">memcmp</code>. The reason for the
+significant discrepancy in results is being further investigated. At this moment,
+we can only state that the optimization method used in parity <em>may</em> produce
+much more efficient code so its worth keeping around. However, we’d recommend
+the following course of action:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>C1</strong> Prepare a patch for bigint::hash that explains the necessity of using unsafe
+code (and memcmp) in prose to make this code easier to understand for others.</li>
+</ul>
+
+<h3 id="step-number-cast-from-64--to-32-bit">Step number cast from 64- to 32-bit</h3>
+
+<p>The report indicates a cast of a 64-bit number to 32-bit one in AuRa code. The concern
+is valid, however, this behaviour will only be triggered 100-500 years later. That said,
+the following course of action was taken:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C2</strong> Avoid casting down to 32-bit by dropping the need to use <code class="highlighter-rouge">Duration</code> type
+    for representing step duration (which is typically single or double digits seconds)
+    https://github.com/oraclesorg/parity/commit/fa2ddce949d8a227b7135b300003f0a5bceddc0f</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C2.1</strong> Prepare a PR and get it merged into the main repository (or get resolved in
+    any other way) https://github.com/paritytech/parity/pull/7282</li>
+</ul>
+
+<h3 id="potential-integer-overflow">Potential integer overflow</h3>
+
+<p>The report highlights that step increment function might overflow the counter, especially
+when parity is compiled for a 32-bit system. This event is also quite far in the future,
+however, the following course of action was taken:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C3</strong> Shutdown parity when such event occurs as there’s not much that can be done
+    at that point https://github.com/oraclesorg/parity/commit/fa2ddce949d8a227b7135b300003f0a5bceddc0f</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C3.1</strong> Prepare a PR and get it merged into the main repository (or get resolved in
+    any other way) https://github.com/paritytech/parity/pull/7282</li>
+</ul>
+
+<h3 id="potential-division-by-zero">Potential division by zero</h3>
+
+<p>The report shows that Step calibration function might panic on division by zero. This is a
+valid concern. If somebody will configure Parity with a step duration of 0 seconds, it’ll
+quickly panic, however, the error won’t necessarily be very informative. This case highlights
+the lack of refinement types in Rust. Following course of action was taken:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C4</strong> Guard step duration parameter to be positive and crash Parity otherwise
+   https://github.com/oraclesorg/parity/commit/fa2ddce949d8a227b7135b300003f0a5bceddc0f</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>C4.1</strong> Prepare a PR and get it merged into the main repository (or get resolved in
+    any other way) https://github.com/paritytech/parity/pull/7282</li>
+</ul>
+
+<h3 id="other-possible-improvements">Other possible improvements</h3>
+
+<p>The report suggests few other improvements. First one is to improve the measurement of timing.
+There is no indication at this point that this is a concern. Course of action:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>C5</strong> Try out https://github.com/jedisct1/rust-coarsetime to see how much more
+    performant it is</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>C6</strong> Research the importance of measurement timing</li>
+</ul>
+
+<p>The other suggested improvement is erroneous as it suggests that the code doesn’t check
+of RNG creation failure, while in fact it does.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

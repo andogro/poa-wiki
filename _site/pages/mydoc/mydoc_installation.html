@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title> | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main"></h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/mydoc_installation.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  
+<p>Running a full node that is synced to POA Network’s blockchain will require you to install <code class="highlighter-rouge">Parity</code> Ethereum client and to start the client with extra parameters using POA’s <code class="highlighter-rouge">spec.json</code> configuration. This allows you to send/receive transactions on POA Core/Sokol network and interact with deployed Contracts/Dapps, sign transactions and much more in the GUI interface. Follow directions below to install <code class="highlighter-rouge">Parity</code> Client and Connect to desired POA network.</p>
+
+<h2 id="installation-of-parity">Installation of Parity</h2>
+
+<h3 id="ubuntudebian--macos-with-homebrew-one-line-binary-installation">Ubuntu/Debian &amp; MacOS with Homebrew one-line Binary Installation</h3>
+<p>This method is for Ubuntu/Debian based OS and MacOS machines with Homebrew installed. Faster than building from source, but no cutting edge features or latest version. If you would like to build from <a href="https://github.com/paritytech/parity">source</a> or download binary release, see the official <a href="https://github.com/paritytech/parity/releases">Parity Releases Page</a>. <br />
+  Please use <code class="highlighter-rouge">Parity v1.8.5</code>.</p>
+
+<ul>
+  <li>Open a bash Terminal and enter the command below, if the client needs an update just simply run the command a second time.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash &lt;(curl https://get.parity.io -kL)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>This will install and configure the Parity client for you. On Ubuntu, this script will also offer to install the Netstats client and connect it to ethstats.net. If you plan on using <code class="highlighter-rouge">Parity</code> for POA only, there is no need to install the extra software. To connect to POA Network using <code class="highlighter-rouge">Parity</code> on Linux/MacOS, please follow the appropriate section below.</p>
+
+<h4 id="installing-from-the-linux-distro-snap-service">Installing from the Linux distro Snap Service</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap install parity --edge
+</code></pre></div></div>
+<h3 id="installing-parity-on-windows">Installing Parity on Windows</h3>
+<p>Parity on Windows can either be installed as a System Service or executed from a folder. Head over to <a href="https://github.com/paritytech/parity/releases">Parity’s Releases Page</a> and choose the desired executable file. To connect to POA Network using <code class="highlighter-rouge">Parity</code> on Windows, please follow the appropriate section below.</p>
+
+<h2 id="connecting-to-and-syncing-with-poa-networks">Connecting to and Syncing with POA Networks</h2>
+
+<h3 id="connecting-linuxmacos-to-poa-network-on-parity">Connecting Linux/MacOS to POA Network on Parity</h3>
+<ol>
+  <li>Obtain <a href="https://github.com/poanetwork/poa-chain-spec/blob/core/spec.json">spec.json</a> and <a href="https://github.com/poanetwork/poa-chain-spec/blob/core/bootnodes.txt">bootnodes.txt</a> files from POA Github.<br />
+  <strong><em>NOTE</em></strong>  For POA Sokol Testnet, Select the appropriate ‘Branch’ on Github.<br />
+  ##### By cloning the Github Repo
+For Core(live) network
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone -b core https://github.com/poanetwork/poa-chain-spec.git
+</code></pre></div>    </div>
+    <p>For Sokol(test) network</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone -b sokol https://github.com/poanetwork/poa-chain-spec.git
+</code></pre></div>    </div>
+  </li>
+  <li>In terminal run
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parity --chain /path/to/spec.json --reserved-peers /path/to/bootnodes.txt ui
+</code></pre></div>    </div>
+    <p>If you would like to limit or choose specific bootnodes, run</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parity --chain /path/to/spec.json --bootnodes enode://ENODE@IP:PORT,enode://ENODE@IP:PORT ui
+</code></pre></div>    </div>
+    <p>Enter all the supplied enodes for the desired network separated by a comma, no space. The <code class="highlighter-rouge">ui</code> is only needed if you would like to use the graphics enabled browser wallet to get the full experience.</p>
+  </li>
+</ol>
+
+<h3 id="connecting-a-windows-machine-to-poa-network-on-parity">Connecting a Windows machine to POA Network on Parity</h3>
+<ol>
+  <li>Obtain <a href="https://github.com/poanetwork/poa-chain-spec/blob/core/spec.json">spec.json</a> and <a href="https://github.com/poanetwork/poa-chain-spec/blob/core/bootnodes.txt">bootnodes.txt</a> files from POA Github.<br />
+  <strong><em>NOTE</em></strong>  For POA Sokol Testnet, Select the appropriate ‘Branch’ on Github.<br />
+  ##### Using Git Bash
+For Core(live) network
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone -b core https://github.com/poanetwork/poa-chain-spec.git
+</code></pre></div>    </div>
+    <p>For Sokol(test) network</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone -b sokol https://github.com/poanetwork/poa-chain-spec.git
+</code></pre></div>    </div>
+  </li>
+  <li>Open Windows Command Prompt CMD or Windows Powershell and navigate to <code class="highlighter-rouge">Parity</code> executive file.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parity --chain c:\path\to\spec.json --reserved-peers c:\path\to\bootnodes.txt ui
+</code></pre></div>    </div>
+    <p>If you would like to limit or choose specific bootnodes, run</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parity --chain c:\path\to\spec.json --bootnodes enode://ENODE@IP:PORT,enode://ENODE@IP:PORT ui
+</code></pre></div>    </div>
+    <p>Enter all the supplied enodes for the desired network separated by a comma, no space. The <code class="highlighter-rouge">ui</code> is only needed if you would like to use the graphics enabled browser wallet to get the full experience.</p>
+  </li>
+</ol>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>

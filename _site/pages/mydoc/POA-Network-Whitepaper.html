@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>POA Network | POA Network Wiki</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-poa.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> POA Network Wiki</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/poanetwork" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="https://poanet.zendesk.com/hc/en-us" target="_blank">Support Portal</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="POA Network">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle"> </li>
+  
+  
+  
+  <li>
+      <a href="#">Products</a>
+      <ul>
+          
+          
+          
+          <li><a href="news.html">News</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p1_landing_page.html">Product 1</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="p2_landing_page.html">Product 2</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">POA Network</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/POA-Network-Whitepaper.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+
+    
+
+  <h1 id="poa-network">POA Network</h1>
+
+<h1 id="abstract">Abstract</h1>
+
+<p>In this paper we propose an open permissioned network based on Ethereum protocol with Proof of Authority consensus by independent validators.</p>
+
+<p>Keywords: Ethereum, Proof of Authority, Consensus, Validators, Public Notary
+Authors: Igor Barinov, Viktor Baranov, Pavel Khahulin</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>POA Network is an open, public, permissioned blockchain based on Ethereum[^fn1] protocol. To reach consensus on a global state, it uses a Proof of Authority consensus algorithm. PoA consensus is a straightforward and efficient form of Proof of Stake with known validators and governance-based penalty system. A list of validators is managed by a smart contract with governance by validators. During an initial ceremony, master of ceremony distributes keys to 12 independent validators. They add 12 plus one more to reach initial requirements for the consensus. To be validators on the network, a master of ceremony asks them to have an active notary public license within the United States. A concerned third party can cross-validate validators’ identities using open data sources and ensure that each validator is a good actor with no criminal records. In the proposed network, identity of individual validator and trust to independent and non-affiliated participants will secure the consensus.</p>
+
+<p>The network is fully compatible with Ethereum protocol. The network supports only Parity client version 1.7 and later. The network supports trusted setup, on-chain governance, and a variety of “proof of identity” oracles. We believe that POA Network will close a gap between private and public networks, and will become a model for open networks based on PoA consensus.</p>
+
+<h1 id="proof-of-authority">Proof of Authority</h1>
+
+<h2 id="authorityround-aura">AuthorityRound (AuRa)</h2>
+
+<p>Aura is one of the Blockchain consensus algorithms available in Parity. It is capable of tolerating up to 50% of malicious nodes with chain reorganizations possible up to a limited depth, dependent on the number of validators, after which finality is guaranteed. This consensus requires a set of validators to be specified, which determines the list of blockchain addresses which participate in the consensus at each height. Sealing a block is the act of collecting transactions and attaching a header to produce a block.[^fn11]</p>
+
+<p>At each step the primary node is chosen that is entitled to seal and broadcast a block, specifically <code class="highlighter-rouge">step modulo #_of_validators</code>the validator is chosen from the set. Blocks should be always sealed on top of the latest known block in the canonical chain. The block’s header includes the step and the primary’s signature of the block hash.[^fn11]</p>
+
+<p>Block can be verified by checking that the signature belongs to the correct primary for the given step. Finality of the chain can be achieved within at most <code class="highlighter-rouge">2 x #_of_validator</code> steps, after more than 50% of the nodes are signed on a chain and then they are signed again on those signatures. [^fn11]</p>
+
+<h2 id="history-of-poa">History of POA</h2>
+
+<p>On March 6, 2017, a group of blockchain companies announced[^fn2] new blockchain based on Ethereum protocol with Proof of Authority consensus [^fn3]. Spam attack on the Ropsten testnet was the reason to create a new public test network[^fn4]. This network was named Kovan, for a metro station in Singapore, where companies who founded the network are located. It is a common name convention for Ethereum test networks, for example, Morden, Ropsten, and Rinkeby are names of metro stations.</p>
+
+<h2 id="adoption-of-kovan-blockchain">Adoption of Kovan blockchain</h2>
+
+<p>In the table below we show stats for Main (Homestead) and Test (Kovan) Ethereum networks.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Network</th>
+      <th>Type</th>
+      <th>Blocks mined</th>
+      <th>Tx created</th>
+      <th>Contract created</th>
+      <th>Accounts created</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kovan</td>
+      <td>Testnet</td>
+      <td>3,417,527</td>
+      <td>2,859,549</td>
+      <td>54,384</td>
+      <td>18,082</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Homestead</td>
+      <td>Mainnet</td>
+      <td>4,203,319</td>
+      <td>50,374,359</td>
+      <td>1,488,072</td>
+      <td>4,957,479</td>
+      <td>Text</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Large numbers of transactions, smart contracts, and accounts on the test network show adoption from the community and proven utility benefit.</p>
+
+<h1 id="poa-network-1">POA Network</h1>
+
+<h2 id="validators">Validators</h2>
+
+<p>Independent U.S. public notaries with active commission license will be the first validators in POA Network. For the initial ceremony, 12 initial keys will be created by a master of ceremony. He will distribute those keys to individual validators. Each validator will change a key to a new subset of keys using a client-side DApp. After the initial distribution of licenses, an additional validator can be added through the voting process on the built-in Governance DApp. A majority of votes will be needed from validators to be accepted into the smart contract with a list of validators.</p>
+
+<h2 id="economy">Economy</h2>
+
+<p>Crowdsale will take place before the launch of the main network.
+Purchased coins will be included in the genesis block and will create initial liquidity for the network.</p>
+
+<p>Validators will start to create blocks and generate a reward for the network security. For each generated block, a validator who created it will get one coin and all fees for transactions. Each validator has equal rights to create a block.</p>
+
+<p>The network will start with 12 validators. With 12 validators active, each validator will create one block every 12 blocks. For each block one coin will be created as a reward for validators and one coin for self sustaining of the network.</p>
+
+<p>A block will be generated with an average time of 5 seconds. During the first year of the network, validators will create 31,536,000 sec/5 sec per block = 6,307,200 blocks.</p>
+
+<p>The emission rate for validators is 2.5% for the first year of the network. The network will use disinflation model, and emission will decrease every year. An additional 2.5% will be added to support sustainability of the network.</p>
+
+<p>Therefore, 2.5% of the network supply will be generated as a reward for validators to secure the network. And 2.5% of total supply will be distributed to support sustainability. Validators will be able to propose areas of spending:</p>
+<ul>
+  <li>burn coins</li>
+  <li>hold coins</li>
+  <li>spend on R&amp;D Foundation</li>
+</ul>
+
+<p>Sustainability emission will be governed by decentralized apps.</p>
+
+<p>Emission rate. 
+X-axis - %, Y-axis - Years
+<img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/emission-rate.png" alt="" /></p>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<h3 id="inexpensive-network">Inexpensive Network</h3>
+
+<p>POA Network provides inexpensive consensus to secure the network. Users can run Ethereum programs on POA Network and spend less money on transaction fees. Overall cost of the network’s security will  also be cheaper due to lower market cap.</p>
+
+<h4 id="problem">Problem</h4>
+
+<p>Though the issuance of ETH is in a fixed amount each year, the rate of growth of the monetary base (monetary inflation) is not constant. This monetary inflation rate decreases every year, making ETH a disinflationary currency (in terms of monetary base). Disinflation is a special case of inflation in which the amount of inflation shrinks over time.[^fn9]</p>
+
+<p>In 2017 the issuance rate of Ether is 14.75%.[^fn10] Roughly five Ethers per block are issued. Because Ethereum rewards Uncles it means that there may be more or less than five Ethers.[^fn10]</p>
+
+<p>By 9/7/2017 miners generated 21,335,541.72 ETH as Mining Block Reward and 1,181,201.88 Mining Uncle Reward. For securing the network, they received a total of 22,516,743.6 ETH. Using the 9/7/2017 price of $303.86, security of the network costs 22516743.6 ETH * $303.86 = $6,841,937,710.296.</p>
+
+<p>There are 56,048,767 transactions on the network. Security of a transaction in the main Ethereum network costs are about $122.07 at the current rate.</p>
+
+<h4 id="solution">Solution</h4>
+
+<p>In POA Network the issuance rate is 3.5% with future disinflation. There is no Mining Uncle Reward in the network, because consensus is not based on Proof of Work.</p>
+
+<h3 id="validators-with-known-identity">Validators with known identity</h3>
+
+<p>Each validator of the network will prove his/her identity using “proof of identity” DApps. Each block will be attributed with the identity of a validator. If a miner breaks the rules of the open network, e.g. will not accept a transaction to a specific address, participants of the network will have legal instruments to resolve that problem.</p>
+
+<h3 id="fast-network">Fast network</h3>
+
+<p>Validators in POA Network create blocks every five seconds. This rate is tested on Kovan testnet and usable in the long-term. A faster network allows for building new types of applications where response rate from the distributed consensus is important.</p>
+
+<h3 id="legally-recognizable-hard-forks">Legally recognizable hard forks</h3>
+
+<p>Hard fork is a change of the software. After applying this software, old clients will not be able to work on the new network.
+All validators on the network are residents of the U.S. Therefore, they are all located in the same legal system. Hard fork decisions will be signed as legal documents and will be recognizable in a court system. This will bring protections to participants of the network and will open new possibilities to decide how to deal with ongoing changes.</p>
+
+<h3 id="model-for-experiments">Model for experiments</h3>
+
+<p>The network is built to iterate fast. In the future many open and independent networks based on Ethereum protocol will operate and have interface for interoperability.</p>
+
+<h2 id="security-risks">Security Risks</h2>
+
+<h3 id="key-compromise">Key compromise</h3>
+
+<p>During the initial ceremony, validators will be required to replace their initial keys with a set of three keys. Mining keys are located on a mining node. If a node is compromised, validators will create a ballot using Governance DApp and propose replacement of the mining key. If a voting key is compromised, a validator will ask another validator to create a ballot to replace his/her voting key. If a payout key is compromised, a validator will create a ballot to replace his/her payout key. Because payout is not required, a validator can specify a new payout key on a mining node without proposing ballots.</p>
+
+<h3 id="censoring-signer">Censoring signer</h3>
+
+<p>Censoring signing is an attack vector in which a signer or a group of signers attempts to censor out blocks that vote on removing them from the validators list. To work around this, we restrict the allowed minting frequency of signers to 1 out of N. This ensures that malicious signers need to control at least 51% of signing accounts, at which case it’s game over anyway.</p>
+
+<h3 id="regulatory-risks">Regulatory risks</h3>
+
+<p>All validators are required to have an active notary commission. Doing block validation under the name of a notary public may be considered as false advertising and a regulator may revoke the notary commission from the validator. The network will mitigate the risk by providing additional identity checks for a validator. Eventually, those unbiased checks will replace the need for a validator to have an active notary commission.</p>
+
+<h3 id="collusion-of-validators">Collusion of validators</h3>
+
+<p>Validators may become an affiliated group even though we require them to be independent. Before distribution of initial keys, the master of ceremony will require validators to sign a non-affiliation agreement between them and the network. All validators are in the same jurisdiction, where the general public may enforce that agreement.</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>We provide a deployment script for cloud installation of mining, boot, and general purpose nodes. 
+For a validator, setting up a node is a one-button solution. For a mining node, a validator will provide</p>
+<ul>
+  <li>Mining Address. The address of the mining key received at the initial ceremony.</li>
+  <li>Mining Keyfile. File with the private key of the mining key.</li>
+  <li>Mining Keypass. The password to unlock the private key of the mining key.</li>
+  <li>Admin Username. Username of admin user of the virtual machine, e.g. <code class="highlighter-rouge">root</code>.</li>
+  <li>Admin SSH public key. Content of admin’s SSH public key. We do not allow use of passwords for the VMs.</li>
+  <li>Netstats Server. Network statistics, e.g. number of Active Nodes, Last Block, Avg Block Time, Best Block, Gas Spending, Gas Limit, List of validators with parameters.</li>
+  <li>Netstats Secret. Password to the netstat server.</li>
+</ul>
+
+<h1 id="decentralized-apps">Decentralized apps</h1>
+<p>The term decentralized app or DApp stands for an application which works with a smart contract and can be deployed on any host and redeployed in case of attack or censorship without any harm to its functions. POA Network provides sets of supported DApps for identity verification, governance, and network administration.</p>
+
+<h2 id="initial-ceremony-dapp">Initial ceremony DApp</h2>
+<p>During the initial ceremony a master of ceremony creates a set of keys for each validator. He/She distributes them to validators one by one. Before each distribution of keys, he/she sends a transaction to a smart contract with a list of validators. That smart contract is used by consensus algorithm to determine if a validator has rights to participate in consensus and create blocks. The validator’s smart contracts are used by other DApps, e.g. Governance DApp and Payout DApp.</p>
+
+<p>A validator generates three keys in the Initial Ceremony DApp:</p>
+<ul>
+  <li>mining key, required to participate in consensus and create blocks.</li>
+  <li>voting key, required to create ballots and vote on ballots.</li>
+  <li>payout key, not required. Used in Payout DApp to send daily mined coins from the mining key to the payout key. If a mining node should be compromised, an attacker will get daily earnings or less.</li>
+</ul>
+
+<p>All keys are generated on the client side and not transmitted over the Internet without a validator’s permission and willingness. When keys are generated, the validator stores them on secure local storage, e.g. saves them to a hardware wallet and the password to a password manager. The validator signs a transaction to the validator’s contract with the initial key, provided by the master of ceremony.</p>
+
+<p>Initial ceremony is a required procedure to start a new network based on POA Network’s ideas of independent validators.</p>
+
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/initial-ceremony.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html?initialData=FAQwxgLg9gTgBAWRAZwgU3lAZnAwhtAWygDsBPUSWOANRABsBLAExGnmFYhACMU04AGUao42WgxZtYyYBEYR6AgJIkFjBnDAFi5YMCSoMYnPhhFSZALQA+Q+kymdlgFwBxNCQxsBAdwZKEHAgzMzmyMhoyAA0ADokAA4wjABuPnAA1mhkMSAkzHAJKMi+sMzIcFiw8QCMAExwaUxcMgYoDiZ4zuS2wqLidM3SMMguAMqeBRAAHnC+CgAWcwFoQSFhURXiII2SLTCU8mnoQiJBA3vDsiRQJ8kA5gvnOH3PEkPso7gLaGAZcBAFmw4CQAK6EHjGcTxJpST5wAA8cHqbSMji65l0ZARVlenUGcJkLlwpCwjBghABQKCsP2ywq6zQzE4aHAR3SeIuH1a9ihTkxllsBP240mhWSxwEWTIwXyhWKpRgzOYrMgqQ5Z3xl0+wGFwyF2tg7k83hO-nogWi4vVJ2lVqKEUVzHiVXghEYahI93tIDIUFBECtKVuHvumWyyAAdLrDTBepquYSRqK5TM4MhGPcvAV5oC4B71JppQCoHBzAl6OA0PEC-Ii9k5os4PcTTAfAVpRVDjaBJycHqdX33knkAbuTAXHhSeTKYDgZ25gRgqEmSy2T3Tv1+7HkEA"></a></p>
+
+<h2 id="proof-of-identity-dapps">Proof of Identity DApps</h2>
+
+<p>In POA Network, identity of individual validators plays a major role for selected consensus. We propose a requirement for the initial validators to have an active notary commission within one of the states of the United States, although notary commission is not an object a validator can control solely. A regulator, e.g. a Secretary of State, may revoke notarial license from a validator, and we propose additional checks of identity, performed in a decentralized way.</p>
+
+<p>Proof of Identity DApps is a series of decentralized applications focused on connecting a user’s identity to his/her wallet. Applications can be run on any Ethereum-compatible network.</p>
+
+<h3 id="proof-of-physical-address-popa-dapp">Proof of Physical Address (PoPA) DApp</h3>
+
+<p>Using Proof of Physical Address, a user can confirm his/her physical address. It can be used to prove residency.</p>
+<h4 id="typical-workflow-for-identity-dapps-on-popa-example">Typical workflow for Identity DApps on PoPA example</h4>
+
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/proof-of-address.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html#initialData=C4S2BsFMAIAUCcD2iBm1VwBYE8DOIBjAQ3GgEEATC+SXXAKHqIOEXmgFVdJ56AHIvFAEQAgHbBoAETJ8+0AO6QARv0HDRRCdNnzu8AG496FIsCLKi3aAGUeR9lIBCaoYU3aAwognxmkslgASRMzCysYb19-W1Y-AHNIVw1xSVhEXEl9A0Ik+mVEAA90B059AC5oILFMknBcaABZSHNGqwBrei4eaABaAD4ZOUUVcvoh+SVlAYnobJ5KmwBXZQBbMGgiKho6aBQ2VYAaAB0xFsxN7doGAuLEUtn5+HKANRIQU2AYADJoMQP3gAvGAgMR8JbAfJFEo9R72BbQADikDOfi+0AIPhQIHgqzMIB8GMQFBgAAoCAQAJTjXRzeHwAZ2QywpyVbh0AliaDtSDYaCk3DtSmnADUGIIoug50u1GuTBYIAMZhgTIeLluMMctKeixA8S5Aj8qxaPAYcOZDMGtKmiwAEmQAMzkqmSwWuvViMxLGiS-64oGQCjQUHgyH+RXKnTDKY06MqAZRYB+FjkYKVAAqAA1Kp46tAaPEQJkeAB9Layuik8s7XDUjX3HqJ5MBNPQN7gD6R-D6r00KF3UpNmKBII5zCQAjtGU1qWFIvABhDlMjhM+JMxGxxIiJRZEIzT66Smz2p0U4ViMXS6uHi-QZTgRCTv5LVbKYzhpXopeSTdsbdJb9UyCGZrVGaBgEKEsPljSZ4ytYYdXAyCPldToSQ-SNZhjc0HEZelpFZOZOlVFkQIQ+lKgpSUryuOh+01KM9Ao6BPHHSdTgggA6FAkFWaAAF5+KlYALmvOgOMKTjWAEoTMWiFNEAUVEYLpC1V3kltR2gAAxUEgzEhoC3nHhA1OAABJDOPvR92gAORfN9eEAld4KYi1KkoCsGk+IgVKeAZ0kyVScgISBKJoZUSz4DJgGIeAgyrWjcEOcVqXQhVPxVfDnHoQKsnsXIBm6Z5pEgDtSmizI4ooLp9DI2DlDGLC4JwhZ6IbLVyPc2wPWgQ0iGNL54DNbV6XqkZGrmD1eySZrpn6ZzWyzHM8yVDtPkgEs5Oxf1QB8LbiUgZ0Uu7T1gG9SA62hDqWLXZsgMqXSxH0pLTgUMALjxWLMFBeJxXoRbgIWu6Ny3HdbrEHiQFWRh6CAA"></a></p>
+
+<p>User fills out a form in DApp and submits it to the server.</p>
+
+<p>Server consists of a web app and a parity node connected to the blockchain. The node is run under the ethereum account that was used to deploy the PoPA contract (contract’s <code class="highlighter-rouge">owner</code>), and this account needs to be unlocked. It shouldn’t have any ether on it though, as it doesn’t send any more transactions.</p>
+
+<p>Server validates and normalizes the user’s input: removes trailing spaces, converts letters to lower case.
+Then it generates a random confirmation code (alphanumeric sequence) and computes its SHA-3 (strictly speaking, keccak256[^fn6]) hash. Also, it generates a random session code (see below), that it stores in memory/database along with the user’s eth address and plain text confirmation code.
+Then the server combines input data, namely <code class="highlighter-rouge">str2sign = (user's eth address + user's name + all parts of physical address + confirmation code's hash</code>) into a string that is hashed and signed with the <code class="highlighter-rouge">owner</code>’s private key. (This is why the <code class="highlighter-rouge">owner</code>’s account needs to be unlocked. In the next release of web3js it will probably become possible to sign using a private key without unlocking.)</p>
+
+<p>Signature, the confirmation code’s hash, the user’s normalized input, and the session code are sent back to the client. User then confirms the transaction in MetaMask and invokes the contract’s method. The contract combines input data in the same order as the server did, hashes it, and then uses the built-in function <code class="highlighter-rouge">ecrecover</code> to validate that the signature belongs to the <code class="highlighter-rouge">owner</code>. If it doesn’t, the contract rejects the transaction, otherwise it adds some metadata, most importantly the current block’s number, and saves it in the blockchain.</p>
+
+<p>When the transaction is mined, <code class="highlighter-rouge">tx_id</code> is returned to the client and then via the client to the server, along with the session code. Server queries memory by the session code and validates the user’s eth address. Then it fetches the transaction from the blockchain by <code class="highlighter-rouge">tx_id</code>. It verifies that <code class="highlighter-rouge">tx.to</code> is equal to <code class="highlighter-rouge">owner</code> and <code class="highlighter-rouge">tx.from</code> is equal to the user’s eth address. Then, using <code class="highlighter-rouge">tx.blockNumber</code> the server uses the contract’s method to find the physical address added at that blockNumber. User should be limited to registering at most one address per eth block. Since block generation time is less than a minute, it shouldn’t be too restrictive on the user.</p>
+
+<p>Having fetched the address from the contract, the server calls postoffice’s api (lob.com) to create a postcard. Server uses the session code to get plain text confirmation code from memory and print it on the postcard. Then the server removes this session code from memory to prevent reuse.</p>
+
+<p>When the postcard arrives, the user enters the confirmation code in DApp, DApps gets signature from the server and invokes the contract’s method. Contract verifies signature, computes the confirmation code’s hash and loops over the user’s addresses to find the matching one.</p>
+
+<p>Possible cheating:</p>
+<ol>
+  <li><em>user can generate his/her own confirmation code, compute all hashes and submit it to the contract, and then confirm it</em>
+This can’t be done because the user doesn’t know the <code class="highlighter-rouge">owner</code>’s private key and therefore can’t compute a valid signature.</li>
+  <li><em>user can reuse someone else’s confirmation code, or his/her own confirmation code from one of the previously confirmed addresses</em>
+This is prevented by hashing all essential pieces of data together before signing (user’s eth address, full physical address, confirmation code) and by checking the address for duplicates in the contract.</li>
+  <li><em>user can submit the form, but doesn’t sign the transaction</em>
+For this reason the postcard is sent after the address is added to the blockchain and <code class="highlighter-rouge">tx_id</code> is presented to the server.</li>
+  <li><em>user can submit the form and sign the transaction, but sends another address to the server to send postcard to</em>
+After the first transaction is mined, the server sees for itself what address was added and fetches it from the contract instead of trusting the client. Session code is then used to retrieve the corresponding confirmation code. To simpify things, we can limit the user to only submitting a single address per block. In this case, the contract just needs to find the first record with matching <code class="highlighter-rouge">creation_block</code>.</li>
+  <li><em>user can resubmit the same tx_id to the server multiple times</em>
+This is prevented by removing the session code from memory after the first postcard is sent.</li>
+</ol>
+
+<h3 id="proof-of-bank-account-dapp">Proof of Bank Account DApp</h3>
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/proof-of-bank.png" alt="" />
+<a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIAUCcD2iBm1XQEIEMB2BraAQQGMTEBXXYAKBuxOEXmgFUBnSeGgB23lAkQfatAAiRHj2gB3SACNe-QcLzBxk6Z3gA3LjQAm2YNnnZO0AMpc9LMZiUCQQkeoDCiavAbqisAJKGxqbmMB5ePlZM3gDmkI4qrlh4hH6BNPKIAB7otmzaAFzQ-rjsJuDg7NAAspAm1eb4NBxc0AC0AHwSUrIKRSTwkAaQ1CDYlTTd0nLynTgExAFF2BTAABYjgsYwFNo086kBnVO98stkkOxVTPgjk5qnxw-atuckl9eIt7gAOrgA1NAGOQqOpcBQALbyLh-QF1NZAgwGQZXDLZXKtE4vLhFABq4xARmAMAAZNBcMwIQSAF4wEC4Hire49bHwOYpRb+IoAMTqJARwMoonBUK4VXkAE8gRcrtAbncDpyniybDjiGQhWDIdD4Ow0TlEHksar4EU3BsSIRgR85YhpSDhdr9JkDUbniaigiALxWAASRAAzAAKeGI5EfWHQMwLEU6yOC0Hkp3wACU+oxdndujVlhAMVw0ARzK0JvaHQ0PRmRXYedwxgog3jGsTsZhAKjHLrEPiJxmZeg4WA3kYnKKABUABpm8bgaCDGIgMpcAD6Ceoy9b3BdGYHniHkTSeIJRJgNfz9cG6cNrUHw98SwHFqtzcdopYkCyi9ot4PRw6P5HSxomwOJq2wPRoFDbAkRRdhI2jQgu0gJsHS1N8aCAA"></a></p>
+
+<p>In contrast to other identity DApps, PoBA is (from the contract’s point of view) a one-step verification process.</p>
+
+<p>DApp client and server are integrated with bank accounting API service (plaid.com).</p>
+
+<p>Client side uses the service’s widget (Plaid Link) to authenticate the user, and as a result of successful authentication, access_token is returned from Plaid to the client. User then fills out a form with his/her bank account number and submits it to the server alongside Plaid’s access token.</p>
+
+<p>Server consists of a web app and a parity node connected to the blockchain. The node is run under the ethereum account that was used to deploy the PoP contract (contract’s <code class="highlighter-rouge">owner</code>). This account needs to be unlocked.</p>
+
+<p>Server validates and normalizes the user’s account number by removing trailing spaces. Then the server fetches the bank account numbers from Plaid using access_token. It checks that the account number submitted by the user is present in the list returned by Plaid.</p>
+
+<p>Server then combines <code class="highlighter-rouge">user's eth address + bank's name + account number</code> into a single string and hashes it with SHA-3 function. The hash is then signed with <code class="highlighter-rouge">owner</code>’s private key (this is why <code class="highlighter-rouge">owner</code> account needs to be unlocked).</p>
+
+<p>Signature, normalized account number, and bank name are returned to the client. User then signs the transaction in MetaMask and invokes the contract’s method.</p>
+
+<p>Contract checks that the account number for this bank for this eth address doesn’t already exist. If it does, the contract rejects the transaction. Otherwise, it combines parameters in the same order as the server did and computes <code class="highlighter-rouge">sha3</code> hash of them. Then it uses the built-in <code class="highlighter-rouge">ecrecover</code> function to validate that the signature belongs to the <code class="highlighter-rouge">owner</code>. If it doesn’t, the contract rejects the transaction, otherwise, it saves the information to the blockchain.</p>
+
+<p>Possible cheating:</p>
+<ol>
+  <li><em>user can generate his/her own confirmation code, compute all hashes, and submit it to the contract, and then confirm it</em>
+This can’t be done because the user doesn’t know the <code class="highlighter-rouge">owner</code>’s private key and hence can’t compute a valid signature.</li>
+  <li><em>user can use someone else’s access_token returned by Plaid and thus verify the account he/she has no real access to</em>
+This is equivalent to either hacking someone else’s computer or the account’s owner deliberately providing the user with his/her access_token. Since all communications with Plaid are via HTTPS protocol, there is no way for the user to intercept access_token sent to someone else.</li>
+</ol>
+
+<h3 id="proof-of-social-network-dapp">Proof of Social Network DApp</h3>
+
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/proof-of-social.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIAUCcD2iBm1XQMqIMYgIbjQBykwA7ovANYBQt+OwV0AqgM6Ty0AO+8oPHwB2waABEAgjx7RykAEa9+gkCLFSZ0TvABuXWgBN8wfAvycsXffAkAhZQJBD8o6AGFEo+IzGTYAJJGJmYWMJ7evljMPgDmkI6q6li4BETCZJQ09AqIAB7oNmw6AFzQAcLspuDg7NAAsmT49RZ0HFzQALQAfJqy8gpltH1yij0jOjZlmACuCgC2YNqphNAZFFTU0DxIKCBQ0AAU7MI8AJTQ4CDCdLkFiEUT1lxlAGqEIMbAMABka1TzD4ALxg1x4M2AtDuhQ6Tz0L2gAHFIBkfN9oDgvHt4IDQF4MYhDDBDjgcGdhtJZJMuD1MM9bOI7GVOOx2CB8dRIABPI7sahnAA6wgA1BicELRWQABbQfCGQzwSCshhMEC6EwwOnwhkOaEPWGU7T06YgWLCbb8fDzMhcdgUrTU+DjQ0DaYACUkAGYSWSJdpqH62WaTDNFX7hADgZBDNAwRCVaB1eiRgN7f0xt0IsAfExoP4AmUACoADTK7kIREVsRAVS4AH0dqh9pBjqdyXqilmc35Am8Pl8YEHhCHFVD8jDbF2ovmy1LIDgtidZJA8jXgHap7n8z1N2JMDF8PFpvh9NpTn7MB7vaTBSLoNLZfLFay-QpwLgtsIZvMFAZfGqNQ8LxsyifcqEPBJdzzQJnS0V1oGAPI60+NNRgUWCqWNBCkM+QM6CJf8kxgFNFFQx1aXpexmToLVHjsDCjW1MpST9B85QVJU7QI1UiKsbV7DHe5HkNR1Z3nANRDyAA6FAkHmaAAF4FPvYAZXY592CFRCpOYRTlMxSJc0QchUTI+kd2A7toILaAADFrhjJdoCrNcuGjIUAAFsKkt8P2Ib9f24KDt16ESsMwYhYGgL58EEicJDCpjoAAdR8WRSVjUREAJYRsVxdlzR4KUfEsElzjM7UGPgnAeFQgYenaeAhka2kVnSTJNjKFpOW2OYrhwbZECqOQwBlGraBa0K4MUMoEAeT4YCuG4EOy1SYB4IaxHIUaMVqkj0KmzCktmBYljWy5rlucd9QZRKpiwHA0pgc6luoAAaaB1SuAc1g6mhoD+Uk4puhKHXC01zSBuEbCqmbtAhkdID9KGXQzYLe2gEsywrT7+w1OsDLykwCoJwkWxvYHO0s6cMfeb7AKHRHKY6dGbPs4RHPPYRttU6BcRwKVrliMVaFZizDL3A8jyA3L4BAeZ6FoIA"></a></p>
+
+<p>User fills out a form in DApp providing the link to his/her social network profile and submits it to the server.</p>
+
+<p>Server consists of a web app and a parity node connected to the blockchain. The node is run under the ethereum account that was used to deploy the PoSN contract (contract’s <code class="highlighter-rouge">owner</code>). This account needs to be unlocked.</p>
+
+<p>Server validates and normalizes the user’s profile link: removes trailing spaces, converts protocol to HTTPS if applicable, domain name to lowercase, and removes extra URL parameters.</p>
+
+<p>Then it generates a random confirmation code (alphanumeric sequence) and computes its SHA-3 (strictly speaking, keccak256[^fn6]) hash. Also, it generates a random session code (see below), that it stores in memory/database along with the user’s eth address and plain text confirmation code.
+Then server combines input data, namely <code class="highlighter-rouge">str2sign = (user's eth address + user's profile link + confirmation code's hash</code>) into a string that is hashed and signed with <code class="highlighter-rouge">owner</code>’s private key (this is why <code class="highlighter-rouge">owner</code>’s account needs to be unlocked).</p>
+
+<p>Signature, the confirmation code’s hash, the user’s normalized profile link, and the session code are sent back to the client. User then confirms the transaction in MetaMask and invokes the contract’s method. The contract combines input data in the same order as the server did, hashes it, and then uses the built-in function <code class="highlighter-rouge">ecrecover</code> to validate that the signature belongs to the <code class="highlighter-rouge">owner</code>. If it doesn’t, the contract rejects the transaction, otherwise it adds some metadata, most importantly the current block’s number, and saves it in the blockchain.</p>
+
+<p>When the transaction is mined, <code class="highlighter-rouge">tx_id</code> is returned to the client and then via the client to the server along with the session code. Server queries memory by the session code and validates the user’s eth address. Then it fetches the transaction from the blockchain by <code class="highlighter-rouge">tx_id</code>. It verifies that <code class="highlighter-rouge">tx.to</code> is equal to <code class="highlighter-rouge">owner</code> and <code class="highlighter-rouge">tx.from</code> is equal to the user’s eth address. Then, using <code class="highlighter-rouge">tx.blockNumber</code> the server uses the contract’s method to find the profile link added at that blockNumber. User should be limited to registering at most one profile link per eth block.</p>
+
+<p>Then the server uses the session code to get plain text confirmation code from memory and enclose it into a predefined meaningful text, e.g.:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My POA identity confirmation code is &lt;confirmation code&gt;
+</code></pre></div></div>
+<p>(As a side note, it’d be funny if the confirmation code was a random quote from a random book.) Then the server sends this confirmation phrase back to the client and removes the session code from memory to prevent reuse.</p>
+
+<p>User must create a publicly available post where the confirmation phrase would appear alone, on a separate line (there may be other text in this post, on other lines).</p>
+
+<p>Then the user returns to the DApp and submits the link to his/her post. Server needs to scrape this post, find a line starting with the predefined text and extract the confirmation code from it. Server then calculates SHA-3 of the confirmation code and signs it with the <code class="highlighter-rouge">owner</code>’s private key. Hash of the confirmation code and signature is returned to the client.</p>
+
+<p>User then confirms the transaction in MetaMask, which invokes the contract’s method. Contract first of all uses <code class="highlighter-rouge">ecrecover</code> to verify that the signature belongs to the <code class="highlighter-rouge">owner</code>. If it doesn’t, the contract rejects the transaction, otherwise it computes the confirmation code’s hash and loops through the user’s profile links to find a matching one. Server must also double-check that post is on the same network that is in the profile link in the contract’s data.</p>
+
+<p>Possible cheating:</p>
+<ol>
+  <li><em>user can generate his/her own confirmation code, compute all hashes, and submit it to the contract, and then confirm it</em>
+This can’t be done because the user doesn’t know the <code class="highlighter-rouge">owner</code>’s private key and therefore can’t compute a valid signature.</li>
+  <li><em>user can reuse someone else’s confirmation code, or his/her own confirmation code from one of the previously confirmed profile links</em>
+This is prevented by hashing all essential pieces of data together before signing (user’s eth address, profile link, confirmation code) and by checking the profile link for duplicates in the contract.</li>
+  <li><em>user can submit the form, but doesn’t sign the transaction</em>
+For this reason confirmation phrase is sent to the client after the profile link is added to the blockchain and <code class="highlighter-rouge">tx_id</code> presented to the server.</li>
+  <li><em>since user knows confirmation code right from the start (cf. PoPA DApp), he/she can avoid posting the confirmation phrase and just call the contract’s method directly</em>
+Link to the post should be presented to the server, which scrapes it, extracts the confirmation code, and then signs it with the <code class="highlighter-rouge">owner</code>’s private key.</li>
+  <li><em>user can post the confirmation phrase on some other social network or website</em>
+Server should double-check that the post is on the same network as the profile link from the contract’s data.</li>
+  <li><em>user can resubmit the same tx_id to the server multiple times</em>
+This is prevented by removing the session code from memory after the first postcard is sent.</li>
+</ol>
+
+<h3 id="proof-of-phone-number-dapp">Proof of Phone Number DApp</h3>
+
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/proof-of-phone.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIAUCcD2iBm1XQLKIEYinABaIB2kAUOQIYDGwi80AqgM6TzkAOV8oNI3EsGgARAIKdO0AO6QcXHnwFUhoiVLbwAbu3IATKsCo4qbaAGV2OxiIBCC3iH6DhAYVLB4tYWNgBJfUNjUxh3IS86C3ovAHMKbkdnFWFzTHNoXwDyHEQAD3RrZk0ALmg-EhYjcHAWLEgjTFMAa3JWdmgAWgA+cUkZOWLyXqlZHG7h6E1rUvMAVxwAWzBoTmIyaBJZhZx2ABoAHTJgQmgqPT14SBYWbLyC9omp9mKANSpwEANgGAAyDYYFu8QAAvGAgEicWbAW75RCFR5WZ7QADikDIXm+0BopBQIHggNApCxiD0MAAFDQaABKIbqSaI+DdSzaB62Upsa4gIlNSAAT2gZJYTSphwA1FiaGLoPUTmcLlcbt4QFpDDBmfD7DlYfC6U94DMQDESCseFQFvV2DcESzGT06aMZgAJMQAZgp1KlQs9hpIhlmlylJABQNBemg4Mh0KVKsxE1GtL6o26YU83gy-lKABUABqlVzvcDQS4xECVdgAfVWpEgZKrZBpWvujBTER8Gegbw+XxgLB9fsuMKb0BbacyecIkBoTRWaxgkFypeANxHkUyyY8raiDCocRmVB0M+rUvMzrdlJFJHFMtO50u1ylOHAiCnGy2Ow40dVw43afM0R3FArm2fjjPaAzQMAuTlp8CYjHIoF9HqpSQdBeiei0pKfrGYHyNa1hMgyohspMLTqqyCEaAypSUlK15yneNyNnCDy6lRw4TlOhyQQAdCgSALNAAC8gnSscN7yveQi5Nx9BCSJ2LhGmiDSOisH0ja66Kau7YAGLgmGdYwMWi7sJAaEkAAAhB0mPs+TQAHJvroQHpiBdqIWxYi3gq0BfFQal6kyaSueyaJ6OWLALLUtazrsEo0phdDKl+ZE2PYqTpGuXRtPqoiQB8hQZa0mgUf0OCDHG8FdC5Y7QDmeYFtAKpdqq5YKbi+KGFyJBtSSNbnoOzHNj+2l+KUekkAZs6HNIYAnASNCEOCMQSuQNX+JpqaRH+267t+JB8SACzkEAA"></a></p>
+
+<p>User fills out a form in DApp providing his/her phone number and submits it to the server.</p>
+
+<p>Server consists of a web app and a parity node connected to the blockchain. The node is run under the ethereum account that was used to deploy the PoP contract (contract’s <code class="highlighter-rouge">owner</code>). This account needs to be unlocked.</p>
+
+<p>Server validates and normalizes the user’s phone number: removes trailing spaces, converts it to international format.</p>
+
+<p>Then it generates a random confirmation code (alphanumeric sequence) and computes its SHA-3 (strictly speaking, keccak256[^fn6]) hash. Also, it generates a random session code (see below) that it stores in memory/database along with the user’s eth address and plain text confirmation code.
+Then the server combines input data, namely <code class="highlighter-rouge">str2sign = (user's eth address + user's phone number + confirmation code's hash</code>) into a string that is hashed and signed with the <code class="highlighter-rouge">owner</code>’s private key (this is why <code class="highlighter-rouge">owner</code>’s account needs to be unlocked).</p>
+
+<p>Signature, the confirmation code’s hash, the user’s normalized phone number, and the session code are sent back to the client. User then confirms the transaction in MetaMask and invokes the contract’s method. The contract combines input data in the same order as the server did, hashes it, and then uses the built-in function <code class="highlighter-rouge">ecrecover</code> to validate that the signature belongs to the <code class="highlighter-rouge">owner</code>. If it doesn’t, the contract rejects the transaction, otherwise it adds some metadata, most importantly the current block’s number, and saves it in the blockchain.</p>
+
+<p>When the transaction is mined, <code class="highlighter-rouge">tx_id</code> is returned to the client and then via the client to the server along with session code. Server queries memory by the session code and validates the user’s eth address. Then it fetches the transaction from the blockchain by <code class="highlighter-rouge">tx_id</code>. It verifies that <code class="highlighter-rouge">tx.to</code> is equal to <code class="highlighter-rouge">owner</code> and <code class="highlighter-rouge">tx.from</code> is equal to the user’s eth address. Then, using <code class="highlighter-rouge">tx.blockNumber</code> the server uses the contract’s method to find the phone number added at that blockNumber. User should be limited to registering at most one phone number per eth block.</p>
+
+<p>Then the server uses the session code to get plain text confirmation code from memory and send it via SMS service (twilio.com) to the user’s phone number. Then the server removes the session code from memory to prevent reuse.</p>
+
+<p>Having received SMS with verification code, the user returns to the DApp and confirms the transaction in MetaMask, which sends confirmation code to the contract’s method directly, without calling the server. There doesn’t seem to be any need for signing this transaction with the <code class="highlighter-rouge">owner</code>’s private key. Contract computes the confirmation code’s hash and loops over the user’s phone numbers to find a matching one.</p>
+
+<p>Possible cheating:</p>
+<ol>
+  <li><em>user can generate his/her own confirmation code, compute all hashes and submit it to the contract, and then confirm it</em>
+This can’t be done because the user doesn’t know the <code class="highlighter-rouge">owner</code>’s private key and therefore can’t compute a valid signature.</li>
+  <li><em>user can reuse someone else’s confirmation code, or his/her own confirmation code from one of the previously confirmed phone numbers</em>
+This is prevented by hashing all essential pieces of data together before signing (user’s eth address, phone number, confirmation code) and by checking the phone number for duplicates in the contract.</li>
+  <li><em>user can submit the form, but doesn’t sign the transaction</em>
+For this reason, SMS is sent after the phone number is added to the blockchain and <code class="highlighter-rouge">tx_id</code> is presented to the server.</li>
+  <li><em>user can submit the form and sign the transaction, but sends another phone number to the server to send SMS to</em>
+After the first transaction is mined, the server sees for itself what phone number was added and fetches it from the contract instead of trusting the client. Session code is then used to retrieve the corresponding confirmation code. To simpify things, we can limit the user to only submitting a single phone number per block. In this case the contract just needs to find the first record with matching <code class="highlighter-rouge">creation_block</code>.</li>
+  <li><em>user can resubmit the same tx_id to the server multiple times</em>
+This is prevented by removing the session code from memory after the first postcard was sent.</li>
+</ol>
+
+<h2 id="governance-dapp">Governance DApp</h2>
+<p>This client-side DApp provides the list of existing ballots with the ability of filtering by active, unanswered, and expired ballots, and gives the opportunity to create new ballots and to vote for or against notaries.</p>
+
+<p>The governance is available only with a valid voting key that should be selected in the MetaMask Google Chrome plugin.</p>
+<h3 id="creating-a-new-ballot">Creating a new ballot</h3>
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/new-ballot.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIHEHsBukBOA7AhmgxpAXNAEYbjjzDTYqQajxoBQDG2w8K0AqgM6oMAOGFKGwhBaCgBEAgv37QA7pEIChIsVgoBhesBQsK0gAoBJBgBNaGYr2g6J+1tG5t9Ac0hMUheAA9oSKhcvCgEIGguJODc0ACykMAYsRjcANYMPEEAtAB80DJyisoE8PyQEURR5JTUtCD00IIezKwgiLQwBfJKKpkcADxZWfmy3cWVpOQA5DFUNHRo0ABm7AC20CAx5pv84BgAnpDmGSHQuSOFPQRLIKQxxJPAMxtoKwA0lOAg2KkxgDgEACoAfZQGgAK6QIGAXAIGGhyDAUCA3AALCjwJYXMaEMIYsAbGJwxIofbPVbhcJuaCpSD7fHQDBLJaQVhHD4AHVea2W7GWty+aEphKEJJiZRQ3HoJGglkSdIwcho1GOfWgg2GXSK2OgQuJzzFEsw4GlVm5KHWKw4N1IFLp224uwORxO2TyGquvLu2vIwr1qANUplGAYbuUZxyIMchlMBGwUVmukj0FWCWR8HM0DY9PM6Y5aEgCgmZAo4Uz2ATBmcrgwzQMbQ6dnLTmMZhVaojFebBHiiWSaXpUGEtp2e0O6YUYGRGf0EVrDXCK2dHFy7ab0co9BuZpiwGRMD0WG4s8YhIRSNRAQxK6jJhju5+3A+IAx7S+6cQ5Bt1P2DCv0GbYYbBwKxcdhq3wQtqk2ZwMGQdNwkA-dWBaUB2mAGBfxA9xPBPAJkA4X9mw+DCqw8AggQAenIk9KKBAgdxgZMdzTfsJUoO9fnZNAn3pNBaQeIsYiEGAbi47hd3MD5CDBChCWgQ4KBEkgQAALyOaBoA5QhaXoygwRQagJAzEBkwAOmgEwMSwfZHwU8IlN4bdd1WEzmHAYtLMZZk0PTL98TQQBMAhk71dRiMkuIFKkaWDUZNVVIZiNA0i7FqbyIOLQSFSEuDFh0r4XAYSBok8ENCDDBKsJjON1yApxGNTdNMwwbNyLBfgZRgXNgv2fzRT9SUjUDF5S0bChMLAxc4qyAi127JIUlSftUHS6Vh0dMcJynA8jxeBcVWXEa-zXMtXhALcM13TaZ1aegfwO-9znKsCCB1brevFfrjVlKDD1gl4EMjaLLlDNsDrGpKtBStT+MgjKyiyv7cs2YACrQY5zBoVpUM6GKegsDGUPraazHR2ssf+4CSM8BggA"></a>
+Valid notary of the POA Network fills out a form in DApp providing:</p>
+<ul>
+  <li><em>mining key</em> - mining key of a new or existing notary, which will be voted on</li>
+  <li><em>affected key type</em> - key type (mining, payout, or voting key) of a new or existing notary, which will be voted on</li>
+  <li><em>memo</em> - brief information about notary, which will be voted on</li>
+  <li><em>action</em> - add affected key to the network or remove it from the network</li>
+</ul>
+
+<p>If the affected key type is mining key, the user will be asked to provide personal data of the notary (owner of this mining key) such as full name, physical address, U.S. state name, zip code, notary license ID, and notary license expiration date.</p>
+
+<p>At the final step, one transaction to create a new ballot in POA contract will be pushed to the blockchain to add a new ballot after the user presses “Continue” button. It should be noted, that in case of a mining key, it will be two consistent transactions: to add personal data of a notary and a new ballot to contract. User will see MetaMask popups equal to the number of transactions. After the confirmation and successful mining of the transaction by existing validators, the user will see the created ballot in the list and be able to vote on it.</p>
+
+<h3 id="voting-on-a-ballot">Voting on a ballot</h3>
+<p><img src="https://github.com/poanetwork/wiki/blob/master/assets/imgs/poa/papers/whitepaper/ballot-voting.png" alt="" /></p>
+
+<p><a href="http://sequencediagram.org/index.html?initialData=C4S2BsFMAIHEHsBukBOA7AhmgxpAXNIvKGgOYBQ5G2w8K0AqgM6rkAOGKo2IHaw0ACIBBNm2gB3SACN2nbrywCAwvH4pqA4QAUAkuQAmGYBmkYW0Ves3QmtDaUiUU0+AA9oSVIxYoCINDsMcHAmaABZSBNw8wBrcmZvAFoAPiFRcSlpAmxwEGxYsIAqIoBXTECpFEgDEugAMxBwYFZNEERjGBExSRkE32gAHiSk9J6sggAVAAsYPLtPeuhyrCYqmugzEOIwkDCDPbZwDABPGv7ktO7MmRy8grCAIhKANWIYNHgJEsfN0uBaGhPECtuBiAByMLYTgGaABaDAWbQebAC70Yaja69bKbYJg4CQ6AcRxwsLwNiQNDnRL0VJjG443L5QrQZ5FN4tBp0H6eehsjkwDCkDABOw86T-QHkLFZaCpKzADQ0aA6XQ5PFQtSKmwAWyi03gsIAOvx4NBqNh4OUBKVfIBMAjCRHyTjaHU5CqVWj0aKGIw9NlVBEi0Ti5qgXFJ0AOTCOpw2EjA0wRGkCbTUcLQ9XgPvlWs9Kr0OTUjRQOrCiJg2tTNBAanIn05KBApGmAngS39ysD0GwsweABo4UsOnlYUQSKRoLFICd6+9oE2W22O3mA4We33CoOQEtQcRI66nJ2vbo5Wlj7Z7EL8LjtsAHYRiAFJ0FQHZ8mETXtlmwjC1YfCx5UDWbowBedh0Nec6cl49AXqqg7gVejgECUAD0aENpAGElAQFbQHqiKGmGTBmr2kADtAX5LFgJy3viYScDAjRoHsswGIOEoCA20BnAILHBCAABeGxUWg0h0fh2ClCg1T8AiIB6gAdNAug0WgJzbvxASCSw5azDqSnShk2K+kkSGQSh0AAEJ4vu37RhgYiQExsL1Cg8A6ssFRrKgGyNM0qCDuOz6XsYezcLsYSlL+nRuXQcKogYLkgZ09LYoYKWgKBlirl23rJa6aUWQ4kBAA"></a>
+The user can see all his/her unanswered ballots by clicking on the self-titled button on the filtering panel.
+The list of unanswered ballots will be displayed after filtering, and the “Vote now” button will be enabled for any item in the list. After clicking on this button, a preview of the ballot will be opened with the notary’s personal data, statistics of voting, and time to ballot’s ending. Two buttons will be enabled here: “Vote for” and “Vote against”. After clicking on any of them, the transaction to account the user’s voice will be generated, and a MetaMask popup will be shown with the transaction information. After the confirmation and successful mining of the transaction by existing validators, the user will see the updated statistics with his/her voice, and the ballot will disappear from the unanswered ballots filter.</p>
+
+<p>Possible cheating:</p>
+<ol>
+  <li><em>user can create ballot or vote with his/her own dummy key</em> 
+It is impossible, because only a valid payout key can govern. It is checked on the contract side.</li>
+  <li><em>same user can vote for or against a notary twice</em>
+It is restricted at the contract side.</li>
+  <li><em>user can vote after ballot’s time has ended</em>
+It is restricted at the contract side.</li>
+  <li><em>notary with counterfeit license can become a member of the network</em>
+It is impossible in practice, because any of the voters can check public information about every notary before voting.</li>
+  <li><em>user can govern other notaries alone</em>
+It is impossible, because the minimal amount of voices for a ballot is equal to 3.</li>
+  <li><em>user can manage the time of a ballot</em>
+Duration of a ballot is constant and equal to 48 hours. It is set in the contract.</li>
+</ol>
+
+<h1 id="summary">Summary</h1>
+
+<p>We believe that such networks with Proof of Authority consensus algorithms will be a trend in public blockchains in the coming years. On-demand systems with trusted validators will play a major role in creating specialized open networks based on Ethereum’s protocol. Our goal is to be a model for the generation of networks connected by inter-ledger protocols, such as Polkadot[^fn5] and Cosmos.</p>
+
+<h1 id="acknowledgments">Acknowledgments</h1>
+
+<p>We would like to express our gratitude to our mentors, advisors and to the many people in the Ethereum community that have been so welcoming and generous with their knowledge.</p>
+
+<p>We would also like to thank the organizers and community members that we’ve met at the Silicon Valley and SF Ethereum Meetups including Roman Storm, Joseph Chow, Martin Koppelmann, Grant Hummer, Tom Ding, Chris Peel, Jeff Flowers, and many others.</p>
+
+<h1 id="appendix-a-code-samples">Appendix A. Code samples.</h1>
+
+<h2 id="ballots-manager">Ballots manager</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pragma solidity ^0.4.14;
+
+import "./Utility.sol";
+import "./ValidatorsManager.sol";
+
+contract BallotsManager is ValidatorsManager {
+    /**
+    @notice Adds new Ballot
+    @param ballotID Ballot unique ID
+    @param owner Voting key of notary, who creates ballot
+    @param miningKey Mining key of notary, which is proposed to add or remove
+    @param affectedKey Mining/payout/voting key of notary, which is proposed to add or remove
+    @param affectedKeyType Type of affectedKey: 0 = mining key, 1 = voting key, 2 = payout key
+    @param addAction Flag: adding is true, removing is false
+    @param memo Ballot's memo
+    */
+    function addBallot(
+        uint ballotID,
+        address owner,
+        address miningKey,
+        address affectedKey,
+        uint affectedKeyType,
+        bool addAction,
+        string memo
+    ) {
+        assert(checkVotingKeyValidity(msg.sender));
+        assert(!(licensesIssued == licensesLimit &amp;&amp; addAction));
+        assert(ballotsMapping[ballotID].createdAt &lt;= 0);
+        if (affectedKeyType == 0) {//mining key
+            bool validatorIsAdded = false;
+            for (uint i = 0; i &lt; validators.length; i++) {
+                assert(!(validators[i] == affectedKey &amp;&amp; addAction)); //validator is already added before
+                if (validators[i] == affectedKey) {
+                    validatorIsAdded = true;
+                    break;
+                }
+            }
+            for (uint j = 0; j &lt; disabledValidators.length; j++) {
+                assert(disabledValidators[j] != affectedKey); //validator is already removed before
+            }
+            assert(!(!validatorIsAdded &amp;&amp; !addAction)); // no such validator in validators array to remove it
+        } else if (affectedKeyType == 1) {//voting key
+            assert(!(checkVotingKeyValidity(affectedKey) &amp;&amp; addAction)); //voting key is already added before
+            assert(!(!checkVotingKeyValidity(affectedKey) &amp;&amp; !addAction)); //no such voting key to remove it
+        } else if (affectedKeyType == 2) {//payout key
+            assert(!(checkPayoutKeyValidity(affectedKey) &amp;&amp; addAction)); //payout key is already added before
+            assert(!(!checkPayoutKeyValidity(affectedKey) &amp;&amp; !addAction)); //no such payout key to remove it
+        }
+        uint votingStart = now;
+        ballotsMapping[ballotID] = Ballot({
+            owner: owner,
+            miningKey: miningKey,
+            affectedKey: affectedKey,
+            memo: memo, 
+            affectedKeyType: affectedKeyType,
+            createdAt: now,
+            votingStart: votingStart,
+            votingDeadline: votingStart + 48 * 60 minutes,
+            votesAmmount: 0,
+            result: 0,
+            addAction: addAction,
+            active: true
+        });
+        ballots.push(ballotID);
+        checkBallotsActivity();
+    }
+    
+    /**
+    @notice Gets active ballots' ids
+    @return { "value" : "Array of active ballots ids" }
+    */
+    function getBallots() constant returns (uint[] value) {
+        return ballots;
+    }
+    
+    /**
+    @notice Gets ballot's memo
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's memo" }
+    */
+    function getBallotMemo(uint ballotID) constant returns (string value) {
+        return ballotsMapping[ballotID].memo;
+    }
+    
+    /**
+    @notice Gets ballot's action
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's action: adding is true, removing is false" }
+    */
+    function getBallotAction(uint ballotID) constant returns (bool value) {
+        return ballotsMapping[ballotID].addAction;
+    }
+    
+    /**
+    @notice Gets mining key of notary
+    @param ballotID Ballot unique ID
+    @return { "value" : "Notary's mining key" }
+    */
+    function getBallotMiningKey(uint ballotID) constant returns (address value) {
+        return ballotsMapping[ballotID].miningKey;
+    }
+
+    /**
+    @notice Gets affected key of ballot
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's affected key" }
+    */
+    function getBallotAffectedKey(uint ballotID) constant returns (address value) {
+        return ballotsMapping[ballotID].affectedKey;
+    }
+
+    /**
+    @notice Gets affected key type of ballot
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's affected key type" }
+    */
+    function getBallotAffectedKeyType(uint ballotID) constant returns (uint value) {
+        return ballotsMapping[ballotID].affectedKeyType;
+    }
+
+    function toString(address x) internal returns (string) {
+        bytes memory b = new bytes(20);
+        for (uint i = 0; i &lt; 20; i++)
+            b[i] = byte(uint8(uint(x) / (2**(8*(19 - i)))));
+        return string(b);
+    }
+
+    /**
+    @notice Gets ballot's owner full name
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's owner full name" }
+    */
+    function getBallotOwner(uint ballotID) constant returns (string value) {
+        address ballotOwnerVotingKey = ballotsMapping[ballotID].owner;
+        address ballotOwnerMiningKey = votingMiningKeysPair[ballotOwnerVotingKey];
+        string storage validatorFullName = validator[ballotOwnerMiningKey].fullName;
+        bytes memory ownerName = bytes(validatorFullName);
+        if (ownerName.length == 0)
+            return toString(ballotOwnerMiningKey);
+        else
+            return validatorFullName;
+    }
+    
+    /**
+    @notice Gets ballot's creation time
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's creation time" }
+    */
+    function ballotCreatedAt(uint ballotID) constant returns (uint value) {
+        return ballotsMapping[ballotID].createdAt;
+    }
+    
+    /**
+    @notice Gets ballot's voting start date
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's voting start date" }
+    */
+    function getBallotVotingStart(uint ballotID) constant returns (uint value) {
+        return ballotsMapping[ballotID].votingStart;
+    }
+    
+    /**
+    @notice Gets ballot's voting end date
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's voting end date" }
+    */
+    function getBallotVotingEnd(uint ballotID) constant returns (uint value) {
+        return ballotsMapping[ballotID].votingDeadline;
+    }
+    
+    /**
+    @notice Gets ballot's amount of votes for
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's amount of votes for" }
+    */
+    function getVotesFor(uint ballotID) constant returns (int value) {
+        return (ballotsMapping[ballotID].votesAmmount + ballotsMapping[ballotID].result)/2;
+    }
+    
+    /**
+    @notice Gets ballot's amount of votes against
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's amount of votes against" }
+    */
+    function getVotesAgainst(uint ballotID) constant returns (int value) {
+        return (ballotsMapping[ballotID].votesAmmount - ballotsMapping[ballotID].result)/2;
+    }
+    
+    /**
+    @notice Checks, if ballot is active
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot's activity: active or not" }
+    */
+    function ballotIsActive(uint ballotID) constant returns (bool value) {
+        return ballotsMapping[ballotID].active;
+    }
+
+    /**
+    @notice Checks, if ballot is already voted by signer of current transaction
+    @param ballotID Ballot unique ID
+    @return { "value" : "Ballot is already voted by signer of current transaction: yes or no" }
+    */
+    function ballotIsVoted(uint ballotID) constant returns (bool value) {
+        return ballotsMapping[ballotID].voted[msg.sender];
+    }
+    
+    /**
+    @notice Votes
+    @param ballotID Ballot unique ID
+    @param accept Vote for is true, vote against is false
+    */
+    function vote(uint ballotID, bool accept) {
+        assert(checkVotingKeyValidity(msg.sender));
+        Ballot storage v =  ballotsMapping[ballotID];
+        assert(v.votingDeadline &gt;= now);
+        assert(!v.voted[msg.sender]);
+        v.voted[msg.sender] = true;
+        v.votesAmmount++;
+        if (accept) v.result++;
+        else v.result--;
+        checkBallotsActivity();
+    }
+
+    /**
+    @notice Removes element by index from validators array and shift elements in array
+    @param index Element's index to remove
+    @return { "value" : "Updated validators array with removed element at index" }
+    */
+    function removeValidator(uint index) internal returns(address[]) {
+        if (index &gt;= validators.length) return;
+
+        for (uint i = index; i&lt;validators.length-1; i++){
+            validators[i] = validators[i+1];
+        }
+        delete validators[validators.length-1];
+        validators.length--;
+    }
+    
+    /**
+    @notice Checks ballots' activity
+    @dev Deactivate ballots, if ballot's time is finished and implement action: add or remove notary, if votes for are greater votes against, and total votes are greater than 3
+    */
+    function checkBallotsActivity() internal {
+        for (uint ijk = 0; ijk &lt; ballots.length; ijk++) {
+            Ballot storage b = ballotsMapping[ballots[ijk]];
+            if (b.votingDeadline &lt; now &amp;&amp; b.active) {
+                if ((int(b.votesAmmount) &gt;= int(votingLowerLimit)) &amp;&amp; b.result &gt; 0) {
+                    if (b.addAction) { //add key
+                        if (b.affectedKeyType == 0) {//mining key
+                            if (licensesIssued &lt; licensesLimit) {
+                                licensesIssued++;
+                                validators.push(b.affectedKey);
+                                InitiateChange(Utility.getLastBlockHash(), validators);
+                            }
+                        } else if (b.affectedKeyType == 1) {//voting key
+                            votingKeys[b.affectedKey] = VotingKey({isActive: true});
+                            votingMiningKeysPair[b.affectedKey] = b.miningKey;
+                        } else if (b.affectedKeyType == 2) {//payout key
+                            payoutKeys[b.affectedKey] = PayoutKey({isActive: true});
+                            miningPayoutKeysPair[b.miningKey] = b.affectedKey;
+                        }
+                    } else { //invalidate key
+                        if (b.affectedKeyType == 0) {//mining key
+                            for (uint jj = 0; jj &lt; validators.length; jj++) {
+                                if (validators[jj] == b.affectedKey) {
+                                    removeValidator(jj); 
+                                    return;
+                                }
+                            }
+                            disabledValidators.push(b.affectedKey);
+                            validator[b.affectedKey].disablingDate = now;
+                        } else if (b.affectedKeyType == 1) {//voting key
+                            votingKeys[b.affectedKey] = VotingKey({isActive: false});
+                        } else if (b.affectedKeyType == 2) {//payout key
+                            payoutKeys[b.affectedKey] = PayoutKey({isActive: false});
+                        }
+                    }
+                }
+                b.active = false;
+            }
+        }
+    }
+}
+</code></pre></div></div>
+
+<h2 id="validators-manager">Validators manager</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pragma solidity ^0.4.14;
+
+import "oracles-contract-validator/ValidatorClass.sol";
+import "./KeysManager.sol";
+
+contract ValidatorsManager is ValidatorClass, KeysManager {
+    
+    /**
+    @notice Adds new notary
+    @param miningKey Notary's mining key
+    @param zip Notary's zip code
+    @param licenseID Notary's license ID
+    @param licenseExpiredAt Notary's expiration date
+    @param fullName Notary's full name
+    @param streetName Notary's address
+    @param state Notary's US state full name
+    */
+    function addValidator(
+        address miningKey,
+        uint zip,
+        uint licenseID,
+        uint licenseExpiredAt,
+        string fullName,
+        string streetName,
+        string state
+    ) {
+        assert(!(!checkVotingKeyValidity(msg.sender) &amp;&amp; !checkInitialKey(msg.sender)));
+        assert(licensesIssued &lt; licensesLimit);
+        validator[miningKey] = Validator({
+            fullName: fullName, 
+            streetName: streetName, 
+            state: state, 
+            zip: zip, 
+            licenseID: licenseID, 
+            licenseExpiredAt: licenseExpiredAt, 
+            disablingDate: 0, 
+            disablingTX: ""
+        });
+    }
+    
+    /**
+    @notice Gets active notaries mining keys
+    @return { "value" : "Array of active notaries mining keys" }
+    */
+    function getValidators() constant returns (address[] value) {
+        return validators;
+    }
+    
+    /**
+    @notice Gets disabled notaries mining keys
+    @return { "value" : "Array of disabled notaries mining keys" }
+    */
+    function getDisabledValidators() constant returns (address[] value) {
+        return disabledValidators;
+    }
+    
+    /**
+    @notice Gets notary's full name
+    @param addr Notary's mining key
+    @return { "value" : "Notary's full name" }
+    */
+    function getValidatorFullName(address addr) constant returns (string value) {
+        return validator[addr].fullName;
+    }
+    
+    /**
+    @notice Gets notary's address
+    @param addr Notary's mining key
+    @return { "value" : "Notary's address" }
+    */
+    function getValidatorStreetName(address addr) constant returns (string value) {
+        return validator[addr].streetName;
+    }
+    
+    /**
+    @notice Gets notary's state full name
+    @param addr Notary's mining key
+    @return { "value" : "Notary's state full name" }
+    */
+    function getValidatorState(address addr) constant returns (string value) {
+        return validator[addr].state;
+    }
+    
+    /**
+    @notice Gets notary's zip code
+    @param addr Notary's mining key
+    @return { "value" : "Notary's zip code" }
+    */
+    function getValidatorZip(address addr) constant returns (uint value) {
+        return validator[addr].zip;
+    }
+    
+    /**
+    @notice Gets notary's license ID
+    @param addr Notary's mining key
+    @return { "value" : "Notary's license ID" }
+    */
+    function getValidatorLicenseID(address addr) constant returns (uint value) {
+        return validator[addr].licenseID;
+    }
+    
+    /**
+    @notice Gets notary's license expiration date
+    @param addr Notary's mining key
+    @return { "value" : "Notary's license expiration date" }
+    */
+    function getValidatorLicenseExpiredAt(address addr) constant returns (uint value) {
+        return validator[addr].licenseExpiredAt;
+    }
+
+    /**
+    @notice Gets notary's disabling date
+    @param addr Notary's mining key
+    @return { "value" : "Notary's disabling date" }
+    */
+    function getValidatorDisablingDate(address addr) constant returns (uint value) {
+        return validator[addr].disablingDate;
+    }
+}
+
+</code></pre></div></div>
+
+<h2 id="deployment-scripts-for-the-mining-node">Deployment scripts for the mining node</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> <span class="nt">-e</span>
+<span class="nb">set</span> <span class="nt">-u</span>
+<span class="nb">set</span> <span class="nt">-x</span>
+
+<span class="nv">EXT_IP</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>curl ifconfig.co<span class="k">)</span><span class="s2">"</span>
+
+<span class="c"># Install logentries daemon /*</span>
+start_logentries<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; start_logentries"</span>
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"echo 'deb http://rep.logentries.com/ trusty main' &gt; /etc/apt/sources.list.d/logentries.list"</span>
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"gpg --keyserver pgp.mit.edu --recv-keys C43C79AD &amp;&amp; gpg -a --export C43C79AD | apt-key add -"</span>
+    <span class="nb">sudo </span>apt-get update
+    <span class="nb">sudo </span>apt-get install <span class="nt">-y</span> logentries
+    <span class="nb">sudo </span>le reinit <span class="nt">--user-key</span><span class="o">=</span>0665901a-e843-41c5-82c1-2cc4b39f0b21 <span class="nt">--pull-server-side-config</span><span class="o">=</span>False
+
+    mkdir <span class="nt">-p</span> /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/netstats_daemon.err
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/netstats_daemon.out
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/parity.err
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/parity.out
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/parity.log
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/transferRewardToPayoutKey.out
+    touch /home/<span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span>/logs/transferRewardToPayoutKey.err
+
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt;&gt; /etc/le/config &lt;&lt; EOF
+[install_err]
+path = /var/lib/waagent/custom-script/download/0/stderr
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[install_out]
+path = /var/lib/waagent/custom-script/download/0/stdout
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[netstats_daemon_err]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/netstats_daemon.err
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[netstats_daemon_out]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/netstats_daemon.out
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[parity_err]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/parity.err
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[parity_out]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/parity.out
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[parity_log]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/parity.log
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[transferReward_out]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.out
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+[transferReward_err]
+path = /home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.err
+destination = AlphaTestTestNet/</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">
+EOF"</span>
+    <span class="nb">sudo </span>apt-get install <span class="nt">-y</span> logentries-daemon
+    <span class="nb">sudo </span>service logentries start
+    <span class="nb">echo</span> <span class="s2">"&lt;===== start_logentries"</span>
+<span class="o">}</span>
+
+start_logentries
+
+<span class="c"># */</span>
+
+<span class="nb">echo</span> <span class="s2">"========== AlphaTestTestNet/mining-node/install.sh starting =========="</span>
+<span class="nb">echo</span> <span class="s2">"===== current time: </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"===== username: </span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"===== working directory: </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"===== operating system info:"</span>
+lsb_release <span class="nt">-a</span>
+<span class="nb">echo</span> <span class="s2">"===== memory usage info:"</span>
+free <span class="nt">-m</span>
+<span class="nb">echo</span> <span class="s2">"===== external ip: </span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"===== environmental variables:"</span>
+printenv
+
+<span class="c"># script parameters</span>
+<span class="c">#INSTALL_DOCKER_VERSION="17.03.1~ce-0~ubuntu-xenial"</span>
+<span class="c">#INSTALL_DOCKER_IMAGE="parity/parity:v1.6.8"</span>
+<span class="nv">INSTALL_CONFIG_REPO</span><span class="o">=</span><span class="s2">"https://raw.githubusercontent.com/poanetwork/test-templates/AlphaTestTestNet/TestTestNet/mining-node"</span>
+<span class="nv">GENESIS_REPO_LOC</span><span class="o">=</span><span class="s2">"https://raw.githubusercontent.com/poanetwork/oracles-scripts/alphadevtestnet/spec.json"</span>
+<span class="nv">GENESIS_JSON</span><span class="o">=</span><span class="s2">"spec.json"</span>
+<span class="nv">NODE_TOML</span><span class="o">=</span><span class="s2">"node.toml"</span>
+<span class="nv">NODE_PWD</span><span class="o">=</span><span class="s2">"node.pwd"</span>
+
+<span class="nb">export </span><span class="nv">HOME</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">:-</span><span class="p">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}}</span><span class="s2">"</span>
+
+<span class="c">#echo "===== will use docker version: ${INSTALL_DOCKER_VERSION}"</span>
+<span class="c">#echo "===== will use parity docker image: ${INSTALL_DOCKER_IMAGE}"</span>
+<span class="nb">echo</span> <span class="s2">"===== repo base path: </span><span class="k">${</span><span class="nv">INSTALL_CONFIG_REPO</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="c"># this should be provided through env by azure template</span>
+<span class="nv">NETSTATS_SERVER</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">NETSTATS_SERVER</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">NETSTATS_SECRET</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">NETSTATS_SECRET</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">MINING_KEYFILE</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">MINING_KEYFILE</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">MINING_ADDRESS</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">MINING_ADDRESS</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">MINING_KEYPASS</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">MINING_KEYPASS</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">NODE_FULLNAME</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">NODE_FULLNAME</span><span class="k">:-</span><span class="nv">Anonymous</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">NODE_ADMIN_EMAIL</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">NODE_ADMIN_EMAIL</span><span class="k">:-</span><span class="nv">somebody</span><span class="p">@somehere</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">ADMIN_USERNAME</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">"</span>
+
+prepare_homedir<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; prepare_homedir"</span>
+    <span class="c">#ln -s "$(pwd)" "/home/${ADMIN_USERNAME}/script-dir"</span>
+    <span class="nb">cd</span> <span class="s2">"/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">"</span>
+    mkdir <span class="nt">-p</span> logs
+    mkdir <span class="nt">-p</span> logs/old
+    <span class="nb">echo</span> <span class="s2">"&lt;===== prepare_homedir"</span>
+<span class="o">}</span>
+
+add_user_to_docker_group<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># based on https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; add_user_to_docker_group"</span>
+    <span class="nb">sudo </span>groupadd docker
+    <span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="s2">"</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">"</span> docker
+    newgrp docker
+    <span class="nb">echo</span> <span class="s2">"===== Groups: "</span>
+    groups
+    <span class="nb">echo</span> <span class="s2">"&lt;===== add_user_to_docker_group"</span>
+<span class="o">}</span>
+
+install_ntpd<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_ntpd"</span>
+    <span class="nb">sudo </span>timedatectl set-ntp no
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install ntp
+
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/cron.hourly/ntpdate &lt;&lt; EOF
+#!/bin/sh
+sudo service ntp stop
+sudo ntpdate -s ntp.ubuntu.com
+sudo service ntp start
+EOF"</span>
+    <span class="nb">sudo </span>chmod 755 /etc/cron.hourly/ntpdate
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_ntpd"</span>
+<span class="o">}</span>
+
+install_haveged<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_haveged"</span>
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install haveged
+    <span class="nb">sudo </span>update-rc.d haveged defaults
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_haveged"</span>
+<span class="o">}</span>
+
+allocate_swap<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; allocate_swap"</span>
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install bc
+    <span class="c">#sudo fallocate -l $(echo "$(free -b | awk '/Mem/{ print $2 }')*2"  | bc -l) /swapfile</span>
+    <span class="nb">sudo </span>fallocate <span class="nt">-l</span> 1G /swapfile
+    <span class="nb">sudo </span>chmod 600 /swapfile
+    <span class="nb">sudo </span>mkswap /swapfile
+    <span class="nb">sudo </span>swapon /swapfile
+    <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s2">"printf '/swapfile   none    swap    sw    0   0</span><span class="se">\n</span><span class="s2">' &gt;&gt; /etc/fstab"</span>
+    <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s2">"printf 'vm.swappiness=10</span><span class="se">\n</span><span class="s2">' &gt;&gt; /etc/sysctl.conf"</span>
+    <span class="nb">sudo </span>sysctl vm.vfs_cache_pressure<span class="o">=</span>50
+    <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s2">"printf 'vm.vfs_cache_pressure = 50</span><span class="se">\n</span><span class="s2">' &gt;&gt; /etc/sysctl.conf"</span>
+    <span class="nb">echo</span> <span class="s2">"&lt;===== allocate_swap"</span>
+<span class="o">}</span>
+
+install_nodejs<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_nodejs"</span>
+    <span class="c"># curl -sL https://deb.nodesource.com/setup_0.12 | bash -</span>
+    curl <span class="nt">-sL</span> https://deb.nodesource.com/setup_6.x | <span class="nb">sudo</span> <span class="nt">-E</span> bash -
+    <span class="nb">sudo </span>apt-get update
+    <span class="nb">sudo </span>apt-get install <span class="nt">-y</span> build-essential git unzip wget nodejs ntp cloud-utils
+
+    <span class="c"># add symlink if it doesn't exist</span>
+    <span class="o">[[</span> <span class="o">!</span> <span class="nt">-f</span> /usr/bin/node <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>ln <span class="nt">-s</span> /usr/bin/nodejs /usr/bin/node
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_nodejs"</span>
+<span class="o">}</span>
+
+install_docker_ce<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_docker_ce"</span>
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install apt-transport-https ca-certificates curl software-properties-common
+    curl <span class="nt">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg | <span class="nb">sudo </span>apt-key add -
+    <span class="nb">sudo </span>add-apt-repository <span class="s2">"deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release <span class="nt">-cs</span><span class="k">)</span><span class="s2"> stable"</span>
+    <span class="nb">sudo </span>apt-get update
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install docker-ce<span class="o">=</span><span class="k">${</span><span class="nv">INSTALL_DOCKER_VERSION</span><span class="k">}</span>
+    <span class="nb">sudo </span>docker pull <span class="k">${</span><span class="nv">INSTALL_DOCKER_IMAGE</span><span class="k">}</span>
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_docker_ce"</span>
+<span class="o">}</span>
+
+pull_image_and_configs<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; pull_image_and_configs"</span>
+
+    <span class="c"># curl -s -O "${INSTALL_CONFIG_REPO}/../${GENESIS_JSON}"</span>
+    curl <span class="nt">-s</span> <span class="nt">-o</span> <span class="s2">"</span><span class="k">${</span><span class="nv">GENESIS_JSON</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">GENESIS_REPO_LOC</span><span class="k">}</span><span class="s2">"</span>
+    curl <span class="nt">-s</span> <span class="nt">-O</span> <span class="s2">"</span><span class="k">${</span><span class="nv">INSTALL_CONFIG_REPO</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="s2">"</span>
+    sed <span class="nt">-i</span> <span class="s2">"/</span><span class="se">\[</span><span class="s2">network</span><span class="se">\]</span><span class="s2">/a nat=</span><span class="se">\"</span><span class="s2">extip:</span><span class="k">${</span><span class="nv">EXT_IP</span><span class="k">}</span><span class="se">\"</span><span class="s2">"</span> <span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span>
+    <span class="nb">cat</span> <span class="o">&gt;&gt;</span> <span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+[misc]
+logging="engine=trace,network=trace,discovery=trace"
+log_file = "/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="sh">/logs/parity.log"
+[account]
+password = ["</span><span class="k">${</span><span class="nv">NODE_PWD</span><span class="k">}</span><span class="sh">"]
+unlock = ["</span><span class="k">${</span><span class="nv">MINING_ADDRESS</span><span class="k">}</span><span class="sh">"]
+[mining]
+force_sealing = true
+engine_signer = "</span><span class="k">${</span><span class="nv">MINING_ADDRESS</span><span class="k">}</span><span class="sh">"
+reseal_on_txs = "none"
+</span><span class="no">EOF
+</span>    <span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">MINING_KEYPASS</span><span class="k">}</span><span class="s2">"</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="k">${</span><span class="nv">NODE_PWD</span><span class="k">}</span><span class="s2">"</span>
+    mkdir <span class="nt">-p</span> parity/keys/OraclesPoA
+    <span class="nb">echo</span> <span class="k">${</span><span class="nv">MINING_KEYFILE</span><span class="k">}</span> | base64 <span class="nt">-d</span> <span class="o">&gt;</span> parity/keys/OraclesPoA/mining.key.<span class="k">${</span><span class="nv">MINING_ADDRESS</span><span class="k">}</span>
+    <span class="nb">echo</span> <span class="s2">"&lt;===== pull_image_and_configs"</span>
+<span class="o">}</span>
+
+<span class="c"># based on https://get.parity.io</span>
+install_netstats<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_netstats"</span>
+    git clone https://github.com/poanetwork/eth-net-intelligence-api
+    <span class="nb">cd </span>eth-net-intelligence-api
+    <span class="c">#sed -i '/"web3"/c "web3": "0.19.x",' package.json</span>
+    npm install
+    <span class="nb">sudo </span>npm install pm2 <span class="nt">-g</span>
+
+    <span class="nb">cat</span> <span class="o">&gt;</span> app.json <span class="o">&lt;&lt;</span> <span class="no">EOL</span><span class="sh">
+[
+    {
+        "name"                 : "netstats_daemon",
+        "script"               : "app.js",
+        "log_date_format"      : "YYYY-MM-DD HH:mm:SS Z",
+        "error_file"           : "/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="sh">/logs/netstats_daemon.err",
+        "out_file"             : "/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="sh">/logs/netstats_daemon.out",
+        "merge_logs"           : false,
+        "watch"                : false,
+        "max_restarts"         : 100,
+        "exec_interpreter"     : "node",
+        "exec_mode"            : "fork_mode",
+        "env":
+        {
+            "NODE_ENV"         : "production",
+            "RPC_HOST"         : "localhost",
+            "RPC_PORT"         : "8545",
+            "LISTENING_PORT"   : "30300",
+            "INSTANCE_NAME"    : "</span><span class="k">${</span><span class="nv">NODE_FULLNAME</span><span class="k">}</span><span class="sh">",
+            "CONTACT_DETAILS"  : "</span><span class="k">${</span><span class="nv">NODE_ADMIN_EMAIL</span><span class="k">}</span><span class="sh">",
+            "WS_SERVER"        : "http://</span><span class="k">${</span><span class="nv">NETSTATS_SERVER</span><span class="k">}</span><span class="sh">:3000",
+            "WS_SECRET"        : "</span><span class="k">${</span><span class="nv">NETSTATS_SECRET</span><span class="k">}</span><span class="sh">",
+            "VERBOSITY"        : 2
+        }
+    }
+]
+</span><span class="no">EOL
+</span>    <span class="nb">cd</span> ..
+    <span class="nb">cat</span> <span class="o">&gt;</span> netstats.start <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+cd eth-net-intelligence-api
+pm2 startOrRestart app.json
+cd ..
+</span><span class="no">EOF
+</span>    chmod +x netstats.start
+    <span class="nb">sudo</span> <span class="nt">-u</span> root <span class="nt">-E</span> <span class="nt">-H</span> ./netstats.start
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_netstats"</span>
+<span class="o">}</span>
+
+install_netstats_via_systemd<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_netstats_via_systemd"</span>
+    git clone https://github.com/poanetwork/eth-net-intelligence-api
+    <span class="nb">cd </span>eth-net-intelligence-api
+    <span class="c">#sed -i '/"web3"/c "web3": "0.19.x",' package.json</span>
+    npm install
+    <span class="nb">sudo </span>npm install pm2 <span class="nt">-g</span>
+
+    <span class="nb">cat</span> <span class="o">&gt;</span> app.json <span class="o">&lt;&lt;</span> <span class="no">EOL</span><span class="sh">
+[
+    {
+        "name"                 : "netstats_daemon",
+        "script"               : "app.js",
+        "log_date_format"      : "YYYY-MM-DD HH:mm:SS Z",
+        "error_file"           : "/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="sh">/logs/netstats_daemon.err",
+        "out_file"             : "/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="sh">/logs/netstats_daemon.out",
+        "merge_logs"           : false,
+        "watch"                : false,
+        "max_restarts"         : 100,
+        "exec_interpreter"     : "node",
+        "exec_mode"            : "fork_mode",
+        "env":
+        {
+            "NODE_ENV"         : "production",
+            "RPC_HOST"         : "localhost",
+            "RPC_PORT"         : "8545",
+            "LISTENING_PORT"   : "30300",
+            "INSTANCE_NAME"    : "</span><span class="k">${</span><span class="nv">NODE_FULLNAME</span><span class="k">}</span><span class="sh">",
+            "CONTACT_DETAILS"  : "</span><span class="k">${</span><span class="nv">NODE_ADMIN_EMAIL</span><span class="k">}</span><span class="sh">",
+            "WS_SERVER"        : "http://</span><span class="k">${</span><span class="nv">NETSTATS_SERVER</span><span class="k">}</span><span class="sh">:3000",
+            "WS_SECRET"        : "</span><span class="k">${</span><span class="nv">NETSTATS_SECRET</span><span class="k">}</span><span class="sh">",
+            "VERBOSITY"        : 2
+        }
+    }
+]
+</span><span class="no">EOL
+</span>    <span class="nb">cd</span> ..
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/systemd/system/oracles-netstats.service &lt;&lt;EOF
+[Unit]
+Description=oracles netstats service
+After=network.target
+[Service]
+Type=oneshot
+RemainAfterExit=true
+User=</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+Group=</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+Environment=MYVAR=myval
+WorkingDirectory=/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/eth-net-intelligence-api
+ExecStart=/usr/bin/pm2 startOrRestart app.json
+[Install]
+WantedBy=multi-user.target
+EOF"</span>
+    <span class="nb">sudo </span>systemctl <span class="nb">enable </span>oracles-netstats
+    <span class="nb">sudo </span>systemctl start oracles-netstats
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_netstats_via_systemd"</span>
+<span class="o">}</span>
+
+start_docker<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; start_docker"</span>
+    <span class="nb">cat</span> <span class="o">&gt;</span> docker.start <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+sudo docker run -d \\
+    --name oracles-poa \\
+    -p 30300:30300 \\
+    -p 30300:30300/udp \\
+    -p 8080:8080 \\
+    -p 8180:8180 \\
+    -p 8545:8545 \\
+    -v "</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sh">/</span><span class="k">${</span><span class="nv">NODE_PWD</span><span class="k">}</span><span class="sh">:/build/</span><span class="k">${</span><span class="nv">NODE_PWD</span><span class="k">}</span><span class="sh">" \\
+    -v "</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sh">/parity:/build/parity" \\
+    -v "</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sh">/</span><span class="k">${</span><span class="nv">GENESIS_JSON</span><span class="k">}</span><span class="sh">:/build/</span><span class="k">${</span><span class="nv">GENESIS_JSON</span><span class="k">}</span><span class="sh">" \\
+    -v "</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sh">/</span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh">:/build/</span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh">" \\
+    </span><span class="k">${</span><span class="nv">INSTALL_DOCKER_IMAGE</span><span class="k">}</span><span class="sh"> --config "</span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh">" &gt; logs/docker.out 2&gt; logs/docker.err
+container_id="\</span><span class="k">$(</span><span class="nb">cat </span>logs/docker.out<span class="k">)</span><span class="sh">"
+sudo ln -sf "/var/lib/docker/containers/\</span><span class="k">${</span><span class="nv">container_id</span><span class="k">}</span><span class="sh">/\</span><span class="k">${</span><span class="nv">container_id</span><span class="k">}</span><span class="sh">-json.log" logs/parity.log
+</span><span class="no">EOF
+</span>    chmod +x docker.start
+    ./docker.start
+    <span class="nb">echo</span> <span class="s2">"&lt;===== start_docker"</span>
+<span class="o">}</span>
+
+use_deb<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; use_deb"</span>
+    curl <span class="nt">-LO</span> <span class="s1">'http://parity-downloads-mirror.parity.io/v1.7.0/x86_64-unknown-linux-gnu/parity_1.7.0_amd64.deb'</span>
+    <span class="nb">sudo </span>dpkg <span class="nt">-i</span> parity_1.7.0_amd64.deb
+    <span class="nb">sudo </span>apt-get install dtach
+    
+    <span class="nb">cat</span> <span class="o">&gt;</span> parity.start <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+dtach -n parity.dtach bash -c "parity -l engine=trace,discovery=trace,network=trace --config </span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh"> &gt;&gt; logs/parity.out 2&gt;&gt; logs/parity.err"
+</span><span class="no">EOF
+</span>    chmod +x parity.start
+    ./parity.start
+    <span class="nb">echo</span> <span class="s2">"&lt;===== use_deb"</span>
+<span class="o">}</span>
+
+use_deb_via_systemd<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; use_deb_via_systemd"</span>
+    curl <span class="nt">-LO</span> <span class="s1">'http://parity-downloads-mirror.parity.io/v1.7.0/x86_64-unknown-linux-gnu/parity_1.7.0_amd64.deb'</span>
+    <span class="nb">sudo </span>dpkg <span class="nt">-i</span> parity_1.7.0_amd64.deb
+
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/systemd/system/oracles-parity.service &lt;&lt;EOF
+[Unit]
+Description=oracles parity service
+After=network.target
+[Service]
+User=</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+Group=</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+WorkingDirectory=/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+ExecStart=/usr/bin/parity --config=node.toml
+Restart=always
+[Install]
+WantedBy=multi-user.target
+EOF"</span>
+    <span class="nb">sudo </span>systemctl <span class="nb">enable </span>oracles-parity
+    <span class="nb">sudo </span>systemctl start oracles-parity
+    <span class="nb">echo</span> <span class="s2">"&lt;===== use_deb_via_systemd"</span>
+<span class="o">}</span>
+
+use_bin<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; use_bin"</span>
+    <span class="nb">sudo </span>apt-get install <span class="nt">-y</span> dtach unzip
+    curl <span class="nt">-L</span> <span class="nt">-o</span> parity-bin-v1.7.0.zip <span class="s1">'https://gitlab.parity.io/parity/parity/-/jobs/61863/artifacts/download'</span>
+    unzip parity-bin-v1.7.0.zip <span class="nt">-d</span> parity-bin-v1.7.0
+    ln <span class="nt">-s</span> parity-bin-v1.7.0/target/release/parity parity-v1.7.0
+    
+    <span class="nb">cat</span> <span class="o">&gt;</span> parity.start <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+dtach -n parity.dtach bash -c "./parity-v1.7.0 -l discovery=trace,network=trace --config </span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh"> &gt;&gt; logs/parity.out 2&gt;&gt; logs/parity.err"
+</span><span class="no">EOF
+</span>    chmod +x parity.start
+    ./parity.start 
+    <span class="nb">echo</span> <span class="s2">"&lt;===== use_bin"</span>
+<span class="o">}</span>
+
+compile_source<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; compile_source"</span>
+    <span class="nb">sudo </span>apt-get <span class="nt">-y</span> install gcc g++ libssl-dev libudev-dev pkg-config
+    curl https://sh.rustup.rs <span class="nt">-sSf</span> | sh <span class="nt">-s</span> <span class="nt">--</span> <span class="nt">-y</span>
+    <span class="nb">source</span> <span class="s2">"/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/.cargo/env"</span>
+    rustc <span class="nt">--version</span>
+    cargo <span class="nt">--version</span>
+
+    git clone <span class="nt">-b</span> <span class="s2">"v1.7.0"</span> https://github.com/paritytech/parity parity-src-v1.7.0
+    <span class="nb">cd </span>parity-src-v1.7.0
+    cargo build <span class="nt">--release</span>
+    <span class="nb">cd</span> ..
+    ln <span class="nt">-s</span> parity-src-v1.7.0/target/release/parity parity-v1.7.0
+    
+    <span class="nb">cat</span> <span class="o">&gt;</span> parity.start <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+./parity-v1.7.0 -l discovery=trace,network=trace --config "</span><span class="k">${</span><span class="nv">NODE_TOML</span><span class="k">}</span><span class="sh">" &gt;&gt; logs/parity.out 2&gt;&gt; logs/parity.err
+</span><span class="no">EOF
+</span>    chmod +x parity.start
+    dtach <span class="nt">-n</span> parity.dtach <span class="s2">"./parity.start"</span>
+    <span class="nb">echo</span> <span class="s2">"&lt;===== compile_source"</span>
+<span class="o">}</span>
+
+install_scripts<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; install_scripts"</span>
+    git clone <span class="nt">-b</span> alphadevtestnet <span class="nt">--single-branch</span> https://github.com/poanetwork/oracles-scripts
+    ln <span class="nt">-s</span> ../node.toml oracles-scripts/node.toml
+    <span class="nb">cd </span>oracles-scripts/scripts
+    npm install
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/cron.daily/transferRewardToPayoutKey &lt;&lt;EOF
+
+#!/bin/bash
+cd "</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"
+echo </span><span class="se">\"</span><span class="s2">Starting at </span><span class="se">\\\$</span><span class="s2">(date)</span><span class="se">\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.out</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"</span><span class="s2">Starting at </span><span class="se">\\\$</span><span class="s2">(date)</span><span class="se">\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.err</span><span class="se">\"</span><span class="s2">
+node transferRewardToPayoutKey.js &gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.out</span><span class="se">\"</span><span class="s2"> 2&gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.err</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.out</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"</span><span class="s2">/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/transferRewardToPayoutKey.err</span><span class="se">\"</span><span class="s2">
+EOF"</span>
+    <span class="nb">sudo </span>chmod 755 /etc/cron.daily/transferRewardToPayoutKey
+    <span class="nb">cd</span> ../..
+    <span class="nb">echo</span> <span class="s2">"&lt;===== install_scripts"</span>
+<span class="o">}</span>
+
+setup_autoupdate<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; setup_autoupdate"</span>
+    <span class="nb">sudo </span>docker pull poanetwork/docker-run
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/cron.daily/docker-autoupdate &lt;&lt; EOF
+#!/bin/sh
+outlog='/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/docker-autoupdate.out'
+errlog='/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/docker-autoupdate.err'
+echo </span><span class="se">\"</span><span class="s2">Starting: </span><span class="se">\\\$</span><span class="s2">(date)</span><span class="se">\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{outlog}</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"</span><span class="s2">Starting: </span><span class="se">\\\$</span><span class="s2">(date)</span><span class="se">\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{errlog}</span><span class="se">\"</span><span class="s2">
+sudo docker run --rm -v /var/run/docker.sock:/tmp/docker.sock poanetwork/docker-run update &gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{outlog}</span><span class="se">\"</span><span class="s2"> 2&gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{errlog}</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{outlog}</span><span class="se">\"</span><span class="s2">
+echo </span><span class="se">\"\"</span><span class="s2"> &gt;&gt; </span><span class="se">\"\\\$</span><span class="s2">{errlog}</span><span class="se">\"</span><span class="s2">
+EOF"</span>
+    <span class="nb">sudo </span>chmod 755 /etc/cron.daily/docker-autoupdate
+    <span class="nb">echo</span> <span class="s2">"&lt;===== setup_autoupdate"</span>
+<span class="o">}</span>
+
+configure_logrotate<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"=====&gt; configure_logrotate"</span>
+    
+    <span class="nb">sudo </span>bash <span class="nt">-c</span> <span class="s2">"cat &gt; /etc/logrotate.d/oracles.conf &lt;&lt; EOF
+/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/logs/*.log {
+    rotate 10
+    size 200M
+    missingok
+    compress
+    copytruncate
+    dateext
+    dateformat %Y-%m-%d-%s
+    olddir old
+}
+/home/</span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">/.pm2/pm2.log {
+    su </span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2"> </span><span class="k">${</span><span class="nv">ADMIN_USERNAME</span><span class="k">}</span><span class="s2">
+    rotate 10
+    size 200M
+    missingok
+    compress
+    copytruncate
+    dateext
+    dateformat %Y-%m-%d-%s
+}"</span>
+    <span class="nb">echo</span> <span class="s2">"&lt;===== configure_logrotate"</span>
+<span class="o">}</span>
+
+<span class="c"># MAIN</span>
+main <span class="o">()</span> <span class="o">{</span>
+    <span class="nb">sudo </span>apt-get update
+
+    prepare_homedir
+    <span class="c">#add_user_to_docker_group</span>
+    
+    install_ntpd
+    install_haveged
+    allocate_swap
+
+    install_nodejs
+    <span class="c">#install_docker_ce</span>
+    pull_image_and_configs
+
+    <span class="c">#start_docker</span>
+    <span class="c">#use_deb</span>
+    use_deb_via_systemd
+    <span class="c">#use_bin</span>
+    
+    <span class="c">#setup_autoupdate</span>
+
+    <span class="c">#install_netstats</span>
+    install_netstats_via_systemd
+    install_scripts
+    configure_logrotate
+<span class="o">}</span>
+
+main
+<span class="nb">echo</span> <span class="s2">"========== AlphaTestTestNet/mining-node/install.sh finished =========="</span>
+</code></pre></div></div>
+
+<h1 id="references">References</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[^fn1]: Ethereum, A Next-Generation Smart Contract and Decentralized Application Platform https://github.com/ethereum/wiki/wiki/White-Paper    
+[^fn2]: Announcing Kovan — A Stable Ethereum Public Testnet https://medium.com/@Digix/announcing-kovan-a-stable-ethereum-public-testnet-10ac7cb6c85f    
+[^fn3]: Kovan proposal https://github.com/kovan-testnet/proposal    
+[^fn4]: Parity pushes new Ethereum testnet 'Kovan' after spam attacks http://www.ibtimes.co.uk/parity-pushes-new-ethereum-testnet-kovan-after-spam-attacks-1609901    
+[^fn5]: Polkadot, a blockchain technology, a heterogeneous multi-chain. https://github.com/w3f/polkadot-white-paper/raw/master/PolkaDotPaper.pdf     
+[^fn6]: The Keccak sponge function family https://keccak.team/keccak.noekeon.org/    
+[^fn7]: Satoshi Nakamoto (2008). Bitcoin: A peer-to-peer electronic cash system https://bitcoin.org/bitcoin.pdf    
+[^fn8]: Public versus Private Blockchains Part 2: Permissionless Blockchains
+http://bitfury.com/content/5-white-papers-research/public-vs-private-pt2-1.pdf    
+[^fn9]: The Issuance Model in Ethereum https://blog.ethereum.org/2014/04/10/the-issuance-model-in-ethereum/    
+[^fn10]: What is Ethereum's inflation rate? (how quickly will new ether be created) https://ethereum.stackexchange.com/questions/12501/what-is-ethereums-inflation-rate-how-quickly-will-new-ether-be-created    
+[^fn11]: https://github.com/paritytech/parity/wiki/Aura    
+</code></pre></div></div>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 POA Network. All rights reserved. <br />
+ Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="POA Network" width="144" /></p>
+                </div>
+            </div>
+</footer>
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
