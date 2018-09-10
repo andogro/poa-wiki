@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="You can add tooltips to any word, such as an acronym or specialized term. Tooltips work well for glossary definitions, because you don't have to keep repeati...">
-<meta name="keywords" content="formatting,  popovers, tooltips, user interface text, glossaries, definitions">
-<title>Tooltips | POA Network Wiki</title>
+<meta name="description" content="Honey Badger BFT is a Rust implementation of the Honey Badger consensus algorithm proposed by Miller et al">
+<meta name="keywords" content="blockchain_projects,  consensus, asynchronous, byzantine">
+<title>Honey Badger BFT | POA Network Wiki</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="andogro.github.io/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="poa-wiki" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -150,7 +150,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Tooltips">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Honey Badger BFT">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -345,7 +345,7 @@
           
           
           
-          <li class="active"><a href="mydoc_adding_tooltips.html">Honey Badger BFT</a></li>
+          <li><a href="mydoc_adding_tooltips.html">Honey Badger BFT</a></li>
           
           
           
@@ -407,7 +407,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Tooltips</h1>
+   <h1 class="post-title-main">Honey Badger BFT</h1>
 </div>
 
 
@@ -415,7 +415,7 @@
 <div class="post-content">
 
    
-    <div class="summary">You can add tooltips to any word, such as an acronym or specialized term. Tooltips work well for glossary definitions, because you don't have to keep repeating the definition, nor do you assume the reader already knows the word's meaning.</div>
+    <div class="summary">Honey Badger BFT is a Rust implementation of the Honey Badger consensus algorithm proposed by Miller et al</div>
    
 
     
@@ -446,24 +446,25 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages/mydoc/mydoc_adding_tooltips.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages/mydoc/mydoc_hbbft.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
 
     
 
-  <h2 id="creating-tooltips">Creating tooltips</h2>
-<p>Because this theme is built on Bootstrap, you can simply use a specific attribute on an element to insert a tooltip.</p>
+  <h2 id="honey-badger-bft">Honey Badger BFT</h2>
 
-<p>Suppose you have a glossary.yml file inside your _data folder. You could pull in that glossary definition like this:</p>
+<p>The Honey Badger consensus algorithm allows nodes in a distributed, potentially asynchronous environment to achieve agreement on transactions. The agreement process does not require a leader node, tolerates corrupted nodes, and makes progress in adverse network conditions. Example use cases are decentralized databases and blockchains.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-original-title=</span><span class="s">"{{site.data.glossary.jekyll_platform}}"</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span> is my favorite tool for building websites.
-</code></pre></div></div>
-
-<p>This renders to the following:</p>
-
-<p><a href="#" data-toggle="tooltip" data-original-title="Jekyll is a static site generator that builds sites using most modern web technologies.">Jekyll</a> is my favorite tool for building websites.</p>
+<ul>
+  <li>
+    <p>Honey Badger is Byzantine Fault Tolerant. The protocol can reach consensus with a number of failed nodes f (including complete takeover by an attacker), as long as the total number N of nodes is greater than 3 * f.</p>
+  </li>
+  <li>
+    <p>Honey Badger is asynchronous. It does not make timing assumptions about message delivery. An adversary can control network scheduling and delay messages without impacting consensus.</p>
+  </li>
+</ul>
 
 
 
@@ -472,8 +473,6 @@ $('#toc').on('click', 'a', function() {
         <b>Tags: </b>
         
         
-        
-        <a href="tag_formatting.html" class="btn btn-default navbar-btn cursorNorm" role="button">formatting</a>
         
         
         
@@ -490,8 +489,8 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2018 POA Network. All rights reserved. <br />
-<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Sep 6, 2018 <br />
-<p><img src="images/poa.png" alt="Company logo"/></p>
+<span>Page last updated:</span> September 10, 2018<br/> Site last generated: Sep 10, 2018 <br />
+<p><img src="images/POA.png" alt="Company logo"/></p>
                 </div>
             </div>
 </footer>

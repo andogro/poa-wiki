@@ -39,17 +39,6 @@
 
 
 {
-"title": "Tooltips",
-"tags": "formatting",
-"keywords": "popovers, tooltips, user interface text, glossaries, definitions",
-"url": "mydoc_adding_tooltips.html",
-"summary": "You can add tooltips to any word, such as an acronym or specialized term. Tooltips work well for glossary definitions, because you don't have to keep repeating the definition, nor do you assume the reader already knows the word's meaning."
-}
-,
-
-
-
-{
 "title": "Alerts",
 "tags": "formatting",
 "keywords": "notes, tips, cautions, warnings, admonitions",
@@ -187,6 +176,17 @@
 "keywords": "definitions, glossaries, terms, style guide",
 "url": "mydoc_glossary.html",
 "summary": "Your glossary page can take advantage of definitions stored in a data file. This gives you the ability to reuse the same definition in multiple places. Additionally, you can use Bootstrap classes to arrange your definition list horizontally."
+}
+,
+
+
+
+{
+"title": "Honey Badger BFT",
+"tags": "blockchain_projects",
+"keywords": "consensus, asynchronous, byzantine",
+"url": "mydoc_hbbft.html",
+"summary": "Honey Badger BFT is a Rust implementation of the Honey Badger consensus algorithm proposed by Miller et al"
 }
 ,
 
