@@ -37,7 +37,7 @@ entries:
       output: web, pdf
 
     - title: FAQs
-      url: /mydoc_about.html
+      url: /mydoc_faq.html
       output: web, pdf
 
   - title: Roles
@@ -109,7 +109,7 @@ entries:
 
     folderitems:
     - title: Honey Badger BFT
-      url: /mydoc_adding_tooltips.html
+      url: /mydoc_hbbft.html
       output: web, pdf
 
     - title: POA Network Bridge

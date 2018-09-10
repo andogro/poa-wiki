@@ -34,12 +34,6 @@
   
   
   <url>
-    <loc>http://localhost:4000/mydoc_about.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:4000/mydoc_about_ruby_gems_etc.html</loc>
   </url>
   

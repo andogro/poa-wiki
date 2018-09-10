@@ -17,17 +17,6 @@
 
 
 {
-"title": "About the theme&#39;s author",
-"tags": "getting_started",
-"keywords": "documentation theme, jekyll, technical writers, help authoring tools, hat replacements",
-"url": "mydoc_about.html",
-"summary": "I have used this theme for projects that I've worked on as a professional technical writer."
-}
-,
-
-
-
-{
 "title": "About Ruby, Gems, Bundler, and other prerequisites",
 "tags": "getting_startedtroubleshooting",
 "keywords": "",

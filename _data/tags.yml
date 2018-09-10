@@ -1,15 +1,9 @@
 # Note:
-# If you are using the createtag script, don't leave an blank line at the end of this file.
+# If you are using the createtag script, don't leave a blank line at the end of this file.
 # In other words, the last line must be the last tag in the allowed-tags list.
 allowed-tags:
   - getting_started
-  - content_types
-  - navigation
-  - formatting
-  - publishing
-  - single_sourcing
-  - special_layouts
-  - collaboration
-  - news
-  - troubleshooting
-  - mobile
+  - blockchain_projects
+  - governance
+  - hard forks
+  - validators
