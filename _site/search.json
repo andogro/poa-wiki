@@ -248,6 +248,17 @@
 
 
 {
+"title": "Install POA",
+"tags": "",
+"keywords": "Parity, poa installation, sokol",
+"url": "mydoc_installation.html",
+"summary": ""
+}
+,
+
+
+
+{
 "title": "Introduction",
 "tags": "",
 "keywords": "",
@@ -561,6 +572,17 @@
 "keywords": "trouble, problems, support, error messages, problems, failure, error,",
 "url": "mydoc_troubleshooting.html",
 "summary": "This page lists common errors and the steps needed to troubleshoot them."
+}
+,
+
+
+
+{
+"title": "POA Wallets",
+"tags": "getting_startedtroubleshooting",
+"keywords": "ethereum wallets, cryptocurrency",
+"url": "mydoc_wallets.html",
+"summary": "Common wallets for POA token storage"
 }
 ,
 
@@ -1323,29 +1345,7 @@
 "title": "",
 "tags": "",
 "keywords": "",
-"url": "pagesmydocmydoc-exchanges.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesmydocmydoc-wallets.html",
-"summary": ""
-}
-,
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "pagesmydocmydoc_installation.html",
+"url": "pagesmydocmydoc_exchanges.html",
 "summary": ""
 }
 ,

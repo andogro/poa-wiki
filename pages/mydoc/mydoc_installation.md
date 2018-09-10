@@ -1,3 +1,10 @@
+---
+title: Install POA
+permalink: mydoc_installation.html
+keywords: Parity, poa installation, sokol 
+sidebar: mydoc_sidebar
+folder: mydoc
+---
 
 Running a full node that is synced to POA Network's blockchain will require you to install `Parity` Ethereum client and to start the client with extra parameters using POA's `spec.json` configuration. This allows you to send/receive transactions on POA Core/Sokol network and interact with deployed Contracts/Dapps, sign transactions and much more in the GUI interface. Follow directions below to install `Parity` Client and Connect to desired POA network.
 

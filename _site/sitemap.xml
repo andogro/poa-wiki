@@ -160,6 +160,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/mydoc_installation.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/mydoc_introduction.html</loc>
   </url>
   
@@ -329,6 +335,12 @@
   
   <url>
     <loc>http://localhost:4000/mydoc_troubleshooting.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/mydoc_wallets.html</loc>
   </url>
   
   
@@ -762,19 +774,7 @@
   
   
   <url>
-    <loc>http://localhost:4000/pages/mydoc/mydoc-exchanges.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/mydoc/mydoc-wallets.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/pages/mydoc/mydoc_installation.html</loc>
+    <loc>http://localhost:4000/pages/mydoc/mydoc_exchanges.html</loc>
   </url>
   
   

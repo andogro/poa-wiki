@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | POA Network Wiki</title>
+<meta name="keywords" content=" Parity, poa installation, sokol">
+<title>Install POA | POA Network Wiki</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -150,7 +150,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Install POA">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -176,38 +176,225 @@
                 
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle"> </li>
+  <li class="sidebarTitle">POA Wiki 1.0</li>
   
   
+  
+      
   
   <li>
-      <a href="#">Products</a>
+      <a href="#">Get Started</a>
       <ul>
           
           
           
-          <li><a href="news.html">News</a></li>
+          <li class="active"><a href="mydoc_installation.html">Installation</a></li>
           
           
           
           
           
           
-          <li><a href="mydoc_introduction.html">Theme instructions</a></li>
+          <li><a href="mydoc_exchanges.html">Exchanges</a></li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Wallets</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="mydoc_metamask.html">Metamask</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="mydoc_mew.html">MyEtherWallet (MEW)</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
           
           
           
           
           
           
-          <li><a href="p1_landing_page.html">Product 1</a></li>
+          <li><a href="mydoc_faq.html">FAQs</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Roles</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_release_notes_60.html">Master of Ceremony</a></li>
           
           
           
           
           
           
-          <li><a href="p2_landing_page.html">Product 2</a></li>
+          <li><a href="mydoc_release_notes_50.html">Validator</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_release_notes_50.html">Full Node Operator</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Hard Forks</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_about_ruby_gems_etc.html">Hard Fork Guideline</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_install_jekyll_on_mac.html">Sokol</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_install_jekyll_on_windows.html">Core</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Governance</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_pages.html">Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_posts.html">Ballots -- Overview, Life cycle & Limits</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_lists.html">Manage Validator Ballots</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_conditional_logic.html">Set Validator Metadata</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Validator Roles</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_sidebar_navigation.html">Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_yaml_tutorial.html">Validator Keys and Passwords</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Projects</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_hbbft.html">Honey Badger BFT</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_alerts.html">POA Network Bridge</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_icons.html">ERC20 - ERC20 Bridge</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_images.html">BlockScout</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_code_samples.html">Mana-Ethereum</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_labels.html">TBD</a></li>
           
           
           
@@ -234,7 +421,7 @@
         <!-- Content Column -->
         <div class="col-md-9" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">Install POA</h1>
 </div>
 
 
@@ -271,15 +458,14 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages//pages/mydoc/mydoc_installation.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com//andogro/poa-wiki/blob/gh-pages/pages/mydoc/mydoc_installation.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
 
     
 
 
     
 
-  
-<p>Running a full node that is synced to POA Network’s blockchain will require you to install <code class="highlighter-rouge">Parity</code> Ethereum client and to start the client with extra parameters using POA’s <code class="highlighter-rouge">spec.json</code> configuration. This allows you to send/receive transactions on POA Core/Sokol network and interact with deployed Contracts/Dapps, sign transactions and much more in the GUI interface. Follow directions below to install <code class="highlighter-rouge">Parity</code> Client and Connect to desired POA network.</p>
+  <p>Running a full node that is synced to POA Network’s blockchain will require you to install <code class="highlighter-rouge">Parity</code> Ethereum client and to start the client with extra parameters using POA’s <code class="highlighter-rouge">spec.json</code> configuration. This allows you to send/receive transactions on POA Core/Sokol network and interact with deployed Contracts/Dapps, sign transactions and much more in the GUI interface. Follow directions below to install <code class="highlighter-rouge">Parity</code> Client and Connect to desired POA network.</p>
 
 <h2 id="installation-of-parity">Installation of Parity</h2>
 

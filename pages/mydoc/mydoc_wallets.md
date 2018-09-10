@@ -1,3 +1,13 @@
+---
+title: POA Wallets
+tags: [getting_started, troubleshooting]
+keywords: ethereum wallets, cryptocurrency
+summary: "Common wallets for POA token storage"
+sidebar: mydoc_sidebar
+permalink: mydoc_wallets.html
+folder: mydoc
+---
+
 POA tokens can be stored on a variety of Ethereum based Wallets.
 
 Browser Wallets:
